@@ -4,6 +4,7 @@ import {Button, TextField} from "@mui/material";
 import * as yup from 'yup'
 import {useFormik} from "formik";
 import RegisterLogoPath from '../../assets/register.jpg'
+import Captcha from "../captcha/captcha";
 
 const validationSchema=yup.object({
     firstName:yup
@@ -106,6 +107,7 @@ const Registration = () => {
           variant="outlined">
 
       </TextField>
+      <Captcha/>
       <Button type="submit" color="success" variant="contained">
          Continue To Register
       </Button>
