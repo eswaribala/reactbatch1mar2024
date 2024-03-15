@@ -6,11 +6,17 @@
     width:50%;
 }
 
+p,a{
+    color: darkred;
+}
+a{
+    text-decoration: none;
+}
 
 .container {
     width: 30rem;
     background-color: #ffffff;
-    padding: 70px;
+    padding: 80px;
     border-radius: 30px;
     position: absolute;
     transform: translate(-50%, -50%);

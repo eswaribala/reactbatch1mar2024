@@ -4,9 +4,11 @@ import {Component, useEffect, useState} from "react";
 import Logo from './components/Logo/Logo'
 import Banner from './components/Banner/Banner'
 import LoginForm from './components/LoginForm/LoginForm'
+import Registration from "./components/registration/registration";
 function App() {
 //react hook -- state initialization
   const[currentTime,setCurrentTime]=useState(new Date())
+  const[isRegister,setIsRegister] = useState(false)
  //react hook - react effect
     useEffect(()=>{
         setInterval(()=>{
@@ -14,6 +16,9 @@ function App() {
         },1000)
     },[currentTime]);
 
+  function handleRegisterChange(value){
+      setIsRegister(value)
+  }
 
   return (
       <div className="App">
@@ -24,7 +29,7 @@ function App() {
           </header>
           <section className="Form-header">
               <Banner/>
-              <LoginForm/>
+              {(!isRegister)?<LoginForm registerStatus={handleRegisterChange}/>:<Registration/>}
           </section>
       </div>
   );

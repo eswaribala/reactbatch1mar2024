@@ -18,7 +18,7 @@ const validationSchema=yup.object({
 })
 
 
-const LoginForm = () => {
+const LoginForm = ({registerStatus}) => {
     const formik =useFormik({
         initialValues:{
             "email":"sample@gmail.com",
@@ -38,9 +38,21 @@ const LoginForm = () => {
         }
 
     });
+    function handleRegisterChange(){
+        let value=true;
+       setValue(true);
+        registerStatus(value)
+    }
+
+    const [value,setValue]=useState(false);
     const [captchaText, setCaptchaText] = useState('');
     const [userInput, setUserInput] = useState('');
     const canvasRef = useRef(null);
+    useEffect(()=>{
+        console.log(value);
+    },[value])
+
+
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
@@ -66,7 +78,7 @@ const LoginForm = () => {
     const drawCaptchaOnCanvas = (ctx, captcha) => {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         const textColors = ['green','red','black','brown'];
-        const letterSpace = 150 / captcha.length;
+        const letterSpace = 175 / captcha.length;
         for (let i = 0; i < captcha.length; i++) {
             const xInitialSpace = 25;
             ctx.font = '32px Lucida Calligraphy';
@@ -124,7 +136,7 @@ const LoginForm = () => {
                  </TextField>
                  <div className="Canvas-header">
                      <canvas ref={canvasRef}
-                             width="300"
+                             width="250"
                              height="70">
 
                      </canvas>
@@ -152,6 +164,7 @@ const LoginForm = () => {
                      Submit
                  </Button>
              </form>
+             <p>New User? <a href="#" onClick={handleRegisterChange}>Create User Account</a></p>
          </div>
     )
 };
