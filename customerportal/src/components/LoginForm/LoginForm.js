@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import './LoginForm.css';
 import {Button, TextField} from "@mui/material";
@@ -41,6 +41,13 @@ const LoginForm = () => {
     const [captchaText, setCaptchaText] = useState('');
     const [userInput, setUserInput] = useState('');
     const canvasRef = useRef(null);
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        initializeCaptcha(ctx);
+    }, []);
+
+
     const generateRandomChar = (min, max) =>
         String.fromCharCode(Math.floor
         (Math.random() * (max - min + 1) + min));
