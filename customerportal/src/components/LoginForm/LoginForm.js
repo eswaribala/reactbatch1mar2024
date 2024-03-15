@@ -65,13 +65,13 @@ const LoginForm = () => {
 
     const drawCaptchaOnCanvas = (ctx, captcha) => {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        const textColors = ['rgb(0,0,0)', 'rgb(130,130,130)'];
+        const textColors = ['green','red','black','brown'];
         const letterSpace = 150 / captcha.length;
         for (let i = 0; i < captcha.length; i++) {
             const xInitialSpace = 25;
-            ctx.font = '20px Roboto Mono';
+            ctx.font = '32px Lucida Calligraphy';
             ctx.fillStyle = textColors[Math.floor(
-                Math.random() * 2)];
+                Math.random() * 4)];
             ctx.fillText(
                 captcha[i],
                 xInitialSpace + i * letterSpace,
@@ -124,15 +124,21 @@ const LoginForm = () => {
                  </TextField>
                  <div className="Canvas-header">
                      <canvas ref={canvasRef}
-                             width="200"
+                             width="300"
                              height="70">
 
                      </canvas>
-                     <button id="reload-button" className="reload-button" variant="contained" onClick={
-                         () => initializeCaptcha(
-                             canvasRef.current.getContext('2d'))}>
+                     <Button id="reload-button" color="success" className="reload-button" variant="contained" onClick={
+
+                         (evnt) => {
+                            // evnt.preventDefault()
+                             initializeCaptcha(
+                             canvasRef.current.getContext('2d')
+                         )}
+
+                     }>
                          Reload
-                     </button>
+                     </Button>
                  </div>
                  <TextField
                      type="text"
