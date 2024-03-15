@@ -28,7 +28,14 @@ const LoginForm = ({registerStatus}) => {
         validationSchema:validationSchema,
         onSubmit:(values)=>{
           alert(JSON.stringify(values))
-
+           /* if (userInput === captchaText) {
+                alert('Success');
+            } else {
+                alert('Incorrect');
+                const canvas = canvasRef.current;
+                const ctx = canvas.getContext('2d');
+                initializeCaptcha(ctx);
+            }*/
         }
 
     });
