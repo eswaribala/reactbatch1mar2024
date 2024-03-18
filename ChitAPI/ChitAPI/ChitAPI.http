@@ -1,0 +1,6 @@
+@ChitAPI_HostAddress = http://localhost:5075
+
+GET {{ChitAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
