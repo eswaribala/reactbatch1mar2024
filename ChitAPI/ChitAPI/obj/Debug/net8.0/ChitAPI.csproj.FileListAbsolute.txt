@@ -250,6 +250,7 @@ F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.AssemblyInf
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.csproj.CoreCompileInputs.cache
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.MvcApplicationPartsAssemblyInfo.cs
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.MvcApplicationPartsAssemblyInfo.cache
+F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.sourcelink.json
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\staticwebassets.build.json
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\staticwebassets.development.json
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\staticwebassets\msbuild.ChitAPI.Microsoft.AspNetCore.StaticWebAssets.props
@@ -264,4 +265,3 @@ F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\refint\ChitAPI.dll
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.pdb
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.genruntimeconfig.cache
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ref\ChitAPI.dll
-F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.sourcelink.json
