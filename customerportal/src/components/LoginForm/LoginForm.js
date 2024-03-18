@@ -4,9 +4,12 @@ import './LoginForm.css';
 import {Button, TextField} from "@mui/material";
 import LoginImagePath from '../../assets/login.jpg';
 import * as yup from 'yup'
+import axios from 'axios';
 import {useFormik} from "formik";
 import Captcha from "../captcha/captcha";
 import {useNavigate} from "react-router-dom";
+
+const RestAPIUrl="http://localhost:5075/api/v1/customers/"
 
 const validationSchema=yup.object({
     email:yup
@@ -35,8 +38,19 @@ const LoginForm = ({registerStatus,submitStatus}) => {
             alert(userInput+" "+captchaText);
             if (userInput === captchaText) {
                 alert('Success');
-                handleSubmitChange();
-                navigate("/dashboard");
+                axios.get(RestAPIUrl+values.email+"/"+values.password)
+                    .then(response=>{
+                   alert(JSON.stringify(response.data));
+                       sessionStorage.setItem("firstName",response.data.name.firstName);
+                        sessionStorage.setItem("lastName",response.data.name.lastName);
+                        sessionStorage.setItem("email",response.data.email);
+                        sessionStorage.setItem("phone",response.data.phone);
+                        handleSubmitChange();
+                        navigate("/dashboard");
+                })
+
+
+
             } else {
                 alert('Incorrect');
                 //const canvas = canvasRef.current;

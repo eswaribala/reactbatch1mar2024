@@ -48,6 +48,17 @@ const Captcha = ({change}) => {
                 100
             );
         }
+        ctx.beginPath();
+        ctx.moveTo(20,30);
+        let k=5;
+        for(let i=0;i<5;i++) {
+            ctx.lineTo(280 + k, 60 -k);
+            ctx.closePath();
+            ctx.strokeStyle="violet";
+            ctx.lineWidth="12px";
+            ctx.stroke();
+            k=k+20;
+        }
     };
 
     const initializeCaptcha = (ctx) => {
