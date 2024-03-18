@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './captcha.css';
 import {Button, TextField} from "@mui/material";
 
-const Captcha = () => {
+const Captcha = ({change}) => {
     const [captchaText, setCaptchaText] = useState('');
     const [userInput, setUserInput] = useState('');
     const canvasRef = useRef(null);
@@ -11,6 +11,7 @@ const Captcha = () => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         initializeCaptcha(ctx);
+
     }, []);
 
 
@@ -59,6 +60,11 @@ const Captcha = () => {
     const handleUserInputChange = (e) => {
         setUserInput(e.target.value);
     };
+
+    useEffect(()=>{
+        change(captchaText,userInput)
+    },[captchaText,userInput])
+
     return(
         <div className="captcha">
             <div className="Canvas-header">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './registration.css';
 import {Button, TextField} from "@mui/material";
 import * as yup from 'yup'
@@ -35,6 +35,15 @@ const validationSchema=yup.object({
 )
 
 const Registration = () => {
+
+    const[captchaText,setCaptchaText]=useState('');
+    const[userText,setUserText]=useState('');
+
+    function handleChange(value1,value2){
+        setCaptchaText(value1);
+        setUserText(value2);
+    }
+
 
     const formik=useFormik({
         initialValues:{
@@ -107,7 +116,7 @@ const Registration = () => {
           variant="outlined">
 
       </TextField>
-      <Captcha/>
+      <Captcha change={handleChange}/>
       <Button type="submit" color="success" variant="contained">
          Continue To Register
       </Button>

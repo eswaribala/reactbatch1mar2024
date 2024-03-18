@@ -6,6 +6,7 @@ import LoginImagePath from '../../assets/login.jpg';
 import * as yup from 'yup'
 import {useFormik} from "formik";
 import Captcha from "../captcha/captcha";
+import {useNavigate} from "react-router-dom";
 
 const validationSchema=yup.object({
     email:yup
@@ -19,7 +20,10 @@ const validationSchema=yup.object({
 })
 
 
-const LoginForm = ({registerStatus}) => {
+const LoginForm = ({registerStatus,submitStatus}) => {
+
+    const navigate=useNavigate();
+
     const formik =useFormik({
         initialValues:{
             "email":"sample@gmail.com",
@@ -27,15 +31,18 @@ const LoginForm = ({registerStatus}) => {
         },
         validationSchema:validationSchema,
         onSubmit:(values)=>{
-          alert(JSON.stringify(values))
-           /* if (userInput === captchaText) {
+          //alert(JSON.stringify(values))
+            alert(userInput+" "+captchaText);
+            if (userInput === captchaText) {
                 alert('Success');
+                handleSubmitChange();
+                navigate("/dashboard");
             } else {
                 alert('Incorrect');
-                const canvas = canvasRef.current;
-                const ctx = canvas.getContext('2d');
-                initializeCaptcha(ctx);
-            }*/
+                //const canvas = canvasRef.current;
+               // const ctx = canvas.getContext('2d');
+              //  initializeCaptcha(ctx);
+            }
         }
 
     });
@@ -45,13 +52,25 @@ const LoginForm = ({registerStatus}) => {
         registerStatus(value)
     }
 
+    function handleSubmitChange(){
+        setIsSubmit(true);
+        submitStatus(true);
+
+    }
+    const [captchaText, setCaptchaText] = useState('');
+    const [userInput, setUserInput] = useState('');
+    const[isSubmit, setIsSubmit]=useState(false);
+
     const [value,setValue]=useState(false);
 
     useEffect(()=>{
         console.log(value);
     },[value])
 
-
+      function handleChange(value1,value2){
+        setCaptchaText(value1);
+        setUserInput(value2);
+      }
 
 
     return (
@@ -82,7 +101,7 @@ const LoginForm = ({registerStatus}) => {
                             fullWidth margin="dense">
 
                  </TextField>
-                  <Captcha/>
+                  <Captcha change={handleChange}/>
                  <Button type="submit" variant="contained">
                      Submit
                  </Button>

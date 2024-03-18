@@ -5,10 +5,13 @@ import Logo from './components/Logo/Logo'
 import Banner from './components/Banner/Banner'
 import LoginForm from './components/LoginForm/LoginForm'
 import Registration from "./components/registration/registration";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./components/dashboard/dashboard";
 function App() {
 //react hook -- state initialization
   const[currentTime,setCurrentTime]=useState(new Date())
   const[isRegister,setIsRegister] = useState(false)
+  const [isSubmit,setIsSubmit]=useState(false);
  //react hook - react effect
     useEffect(()=>{
         setInterval(()=>{
@@ -20,6 +23,10 @@ function App() {
       setIsRegister(value)
   }
 
+  function handleSubmitChange(value){
+      setIsSubmit(value);
+  }
+
   return (
       <div className="App">
           <header className="App-header">
@@ -28,9 +35,17 @@ function App() {
               <h4>{currentTime.toLocaleTimeString()}</h4>
           </header>
           <section className="Form-header">
+          {(!isSubmit) && (
+              <div className="Form-header">
               <Banner/>
-              {(!isRegister)?<LoginForm registerStatus={handleRegisterChange}/>:<Registration/>}
-          </section>
+              {(!isRegister)?<LoginForm registerStatus={handleRegisterChange} submitStatus={handleSubmitChange} />:<Registration/>}
+              </div>
+          )
+          }
+          <Routes>
+              <Route path="/dashboard" element={<Dashboard/>}></Route>
+          </Routes>
+      </section>
       </div>
   );
 }
