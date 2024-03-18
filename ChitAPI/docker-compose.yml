@@ -6,12 +6,14 @@ services:
     build:
       context: .
       dockerfile: ChitAPI/Dockerfile
+      
     ports:
      -   8085:80
      -   8087:443 
+    
     depends_on:
-      - sqlserverinventoryservice
-  sqlserverinventoryservice:  
+      - sqlserverchitservice
+  sqlserverchitservice:  
     image: mcr.microsoft.com/mssql/server 
     hostname: 'sqlserverinventoryservice'  
     environment:  

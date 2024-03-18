@@ -5,7 +5,7 @@ services:
       context: F:\Local disk\NovacTraining\ChitAPI
       dockerfile: ChitAPI/Dockerfile
     depends_on:
-      sqlserverinventoryservice:
+      sqlserverchitservice:
         condition: service_started
         required: true
     environment:
@@ -43,7 +43,7 @@ services:
         read_only: true
         bind:
           create_host_path: true
-  sqlserverinventoryservice:
+  sqlserverchitservice:
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: Vignesh@95

@@ -12,7 +12,7 @@ services:
       target: base
     container_name: ChitAPI
     depends_on:
-      sqlserverinventoryservice:
+      sqlserverchitservice:
         condition: service_started
         required: true
     entrypoint:
@@ -120,7 +120,7 @@ services:
         target: /src
         bind:
           create_host_path: true
-  sqlserverinventoryservice:
+  sqlserverchitservice:
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: Vignesh@95
