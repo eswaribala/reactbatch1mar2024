@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\ChitAPIPublisher</_PublishTargetUrl>
+    <History>True|2024-03-18T09:43:26.1189381Z;True|2024-03-18T15:10:22.8862523+05:30;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ChitConn">
+      <Value>Data Source=DESKTOP-B08BAAN\MSSQLSERVER2024%3bInitial Catalog=ChitDB%3bPersist Security Info=True%3bUser ID=sa%3bPassword=vignesh%3bTrustServerCertificate=true%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
