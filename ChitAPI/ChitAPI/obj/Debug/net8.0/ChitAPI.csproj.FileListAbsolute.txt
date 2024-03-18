@@ -265,3 +265,4 @@ F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\refint\ChitAPI.dll
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.pdb
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ChitAPI.genruntimeconfig.cache
 F:\Local disk\NovacTraining\ChitAPI\ChitAPI\obj\Debug\net8.0\ref\ChitAPI.dll
+F:\Local disk\NovacTraining\ChitAPI\ChitAPI\bin\Debug\net8.0\libman.json

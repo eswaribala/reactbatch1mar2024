@@ -1,0 +1,66 @@
+name: dockercompose18413281761818279692
+services:
+  chitapi:
+    build:
+      context: F:\Local disk\NovacTraining\ChitAPI
+      dockerfile: ChitAPI/Dockerfile
+    depends_on:
+      sqlserverchitservice:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+      ASPNETCORE_URLS: http://+:80
+    image: chitapi
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8085"
+        protocol: tcp
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\Dell\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind:
+          create_host_path: true
+      - type: bind
+        source: C:\Users\Dell\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind:
+          create_host_path: true
+  sqlserverchitservice:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Vignesh@95
+    expose:
+      - "1433"
+    hostname: sqlserverinventoryservice
+    image: mcr.microsoft.com/mssql/server
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "1406"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: F:\Local disk\NovacTraining\ChitAPI\chitapi
+        target: /var/opt/mssql/data
+        bind:
+          create_host_path: true
+networks:
+  default:
+    name: dockercompose18413281761818279692_default

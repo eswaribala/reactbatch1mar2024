@@ -24,3 +24,4 @@ F:\Local disk\NovacTraining\ChitAPI\bin\Debug\ChitAPI.pdb
 F:\Local disk\NovacTraining\ChitAPI\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 F:\Local disk\NovacTraining\ChitAPI\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 F:\Local disk\NovacTraining\ChitAPI\obj\Debug\docker-compose.dcproj.CopyComplete
+F:\Local disk\NovacTraining\ChitAPI\bin\Debug\libman.json

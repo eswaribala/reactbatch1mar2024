@@ -8,10 +8,10 @@ services:
       dockerfile: ChitAPI/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80  
+      - ASPNETCORE_URLS=http://+:80  
     ports:
      -   8085:80
-     -   8087:443 
+     #-   8087:443 
     
     depends_on:
       - sqlserverchitservice
