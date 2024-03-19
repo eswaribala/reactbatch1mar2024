@@ -10,7 +10,7 @@ import Captcha from "../captcha/captcha";
 import {useNavigate} from "react-router-dom";
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-const RestAPIUrl="http://localhost:5075/api/v1/customers/"
+const RestAPIUrl="http://54.165.173.13:8085/api/v1/Customers/"
 
 const validationSchema=yup.object({
     email:yup
