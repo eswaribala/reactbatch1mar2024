@@ -5,6 +5,8 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from '@mui/icons-material/Phone';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Logo from "../Logo/Logo";
+import {Menubar} from "primereact/menubar";
+import {items} from "../../models/Items";
 const Dashboard = () => {
     const firstName=sessionStorage.getItem("firstName");
     const lastName=sessionStorage.getItem("lastName");
@@ -16,7 +18,7 @@ const Dashboard = () => {
         <div>
             <header className="header">
                 <Logo/>
-
+                <Menubar key={items.label} model={items}></Menubar>
                 <div className="welcome">
                     <h4>Hi&nbsp;&nbsp;{firstName}</h4>
                     <span className="pi pi-user"></span>
