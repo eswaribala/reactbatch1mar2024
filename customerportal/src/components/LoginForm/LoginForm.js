@@ -1,14 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import './LoginForm.css';
-import {Button, TextField} from "@mui/material";
+import {Button, InputAdornment, TextField} from "@mui/material";
 import LoginImagePath from '../../assets/login.jpg';
 import * as yup from 'yup'
 import axios from 'axios';
 import {useFormik} from "formik";
 import Captcha from "../captcha/captcha";
 import {useNavigate} from "react-router-dom";
-
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
 const RestAPIUrl="http://localhost:5075/api/v1/customers/"
 
 const validationSchema=yup.object({
@@ -94,6 +95,14 @@ const LoginForm = ({registerStatus,submitStatus}) => {
                  <TextField id="email"
                             label="Email"
                             variant="outlined"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <EmailIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+
                             fullWidth
                             value={formik.values.email}
                             onBlur={formik.handleBlur}
@@ -107,6 +116,13 @@ const LoginForm = ({registerStatus,submitStatus}) => {
                             label="Password"
                             type="password"
                             variant="outlined"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <LockIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
                             value={formik.values.password}
                             onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
