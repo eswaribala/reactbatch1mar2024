@@ -9,5 +9,6 @@ namespace ChitAPI.Repositories
         Task<bool> DeleteChit(long ChitId);
         Task<Chit> GetChitByChitId(long ChitId);
         Task<IEnumerable<Chit>> GetChits();
+        Task<IEnumerable<Chit>> GetChitsByCustomerId(long CustomerId);
     }
 }

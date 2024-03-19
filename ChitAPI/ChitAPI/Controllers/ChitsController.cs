@@ -39,6 +39,11 @@ namespace ChitAPI.Controllers
         {
             return await chitRepo.GetChitByChitId(Id);
         }
+        [HttpGet("/filter/{CustomerId}")]
+        public async Task<IEnumerable<Chit>> Get(long CustomerId)
+        {
+            return await chitRepo.GetChitsByCustomerId(CustomerId);
+        }
 
         [HttpPost]
         public async Task<IActionResult> Post(long Id,[FromBody] Chit Chit)

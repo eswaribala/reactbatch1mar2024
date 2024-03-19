@@ -63,6 +63,11 @@ namespace ChitAPI.Repositories
             return await this._context.Chits.ToListAsync();
         }
 
+        public async Task<IEnumerable<Chit>> GetChitsByCustomerId(long CustomerId)
+        {
+            return await this._context.Chits.Where(c=>c.CustomerId == CustomerId).ToListAsync();    
+        }
+
         public async Task<Chit> UpdateChit(long ChitId, int Duration)
         {
             var result = await this._context.Chits.FirstOrDefaultAsync(c =>
