@@ -1,5 +1,3 @@
-version: '3.4'
-
 services:
   chitapi:
     image: ${DOCKER_REGISTRY-}chitapi
@@ -8,23 +6,22 @@ services:
       dockerfile: ChitAPI/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:80  
+      - ASPNETCORE_URLS=http://+:80
     ports:
      -   8085:80
-     #-   8087:443 
-    
+     #-   8087:443
+
     depends_on:
       - sqlserverchitservice
-  sqlserverchitservice:  
-    image: mcr.microsoft.com/mssql/server 
-    hostname: 'sqlserverinventoryservice'  
-    environment:  
-      ACCEPT_EULA: 'Y' 
-      SA_PASSWORD: "Vignesh@95"  
-    volumes:  
-      - ./chitapi:/var/opt/mssql/data  
-    ports:  
-      - '1406:1433'  
-    expose:  
-      - 1433 
- 
+  sqlserverchitservice:
+    image: mcr.microsoft.com/mssql/server
+    hostname: 'sqlserverinventoryservice'
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: "Vignesh@95"
+    volumes:
+      - ./chitapiv1:/var/opt/mssql/datav1
+    ports:
+      - '1406:1433'
+    expose:
+      - 1433
