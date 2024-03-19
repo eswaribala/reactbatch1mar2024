@@ -29,23 +29,30 @@ function App() {
 
   return (
       <div className="App">
+          {(!isSubmit) && (
+           <div>
           <header className="App-header">
               <Logo/>
               <h1 className="multicolortext">Customer Portal</h1>
               <h4>{currentTime.toLocaleTimeString()}</h4>
           </header>
           <section className="Form-header">
-          {(!isSubmit) && (
+
               <div className="Form-header">
               <Banner/>
               {(!isRegister)?<LoginForm registerStatus={handleRegisterChange} submitStatus={handleSubmitChange} />:<Registration/>}
               </div>
+          </section>
+          </div>
           )
           }
+          {(isSubmit) &&(
+         <section>
           <Routes>
               <Route path="/dashboard" element={<Dashboard/>}></Route>
           </Routes>
-      </section>
+         </section>
+              )}
       </div>
   );
 }

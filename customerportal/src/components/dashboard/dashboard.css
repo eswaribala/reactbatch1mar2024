@@ -1,24 +1,47 @@
-.Dashboard {}
-
-.App-header {
-    background-color: gold;
-    min-height: 10vh;
-    display: flex;
-    flex-direction: col;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: black;
-}
-
-
-.Customer-Detail {
-    background-color:gold;
+.header{
+    background-color: black;
     min-height: 10vh;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+    justify-content: space-around;
+    font-size: calc(5px + 2vmin);
+    color: white;
+}
+.welcome{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.article{
+    background-color: gold;
     color: black;
+    min-height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: left;
+    font-size: calc(2px + 2vmin);
+    width:100%;
+    padding: 2%;
+}
+.Account{
+    width: 20%;
+}
+.center{
+    display:flex;
+    flex-direction: row;
+    width: 75%;
+}
+.center h1{
+    font-size: x-large;
+}
+.Dashboard{
+    display: flex;
+    align-items: center;
+
+
 }
