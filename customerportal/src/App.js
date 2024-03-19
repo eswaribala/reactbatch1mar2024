@@ -50,6 +50,7 @@ function App() {
          <section>
           <Routes>
               <Route path="/dashboard" element={<Dashboard/>}></Route>
+              <Route path="/" element={<App/>}></Route>
           </Routes>
          </section>
               )}

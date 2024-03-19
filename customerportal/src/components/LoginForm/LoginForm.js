@@ -41,13 +41,19 @@ const LoginForm = ({registerStatus,submitStatus}) => {
                 alert('Success');
                 axios.get(RestAPIUrl+values.email+"/"+values.password)
                     .then(response=>{
-                   alert(JSON.stringify(response.data));
-                       sessionStorage.setItem("firstName",response.data.name.firstName);
-                        sessionStorage.setItem("lastName",response.data.name.lastName);
-                        sessionStorage.setItem("email",response.data.email);
-                        sessionStorage.setItem("phone",response.data.phone);
-                        handleSubmitChange();
-                        navigate("/dashboard");
+                   if((response.data !== '')&&(response.data.constructor === Object)
+                       &&(Object.keys((response.data).length>0)))  {
+                       alert(JSON.stringify(response.data));
+                       sessionStorage.setItem("isSubmit",true);
+                       sessionStorage.setItem("firstName", response.data.name.firstName);
+                       sessionStorage.setItem("lastName", response.data.name.lastName);
+                       sessionStorage.setItem("email", response.data.email);
+                       sessionStorage.setItem("phone", response.data.phone);
+                       handleSubmitChange();
+                       navigate("/dashboard");
+                   }else{
+                       navigate("/");
+                   }
                 })
 
 
