@@ -26,7 +26,7 @@
     justify-content: left;
     font-size: calc(2px + 2vmin);
     width:100%;
-    padding: 2%;
+    padding: 1%;
 }
 .Account{
     width: 20%;
@@ -44,4 +44,7 @@
     align-items: center;
 
 
+}
+p{
+    color:white;
 }

@@ -10,7 +10,8 @@ import Captcha from "../captcha/captcha";
 import {useNavigate} from "react-router-dom";
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-const RestAPIUrl="http://54.165.173.13:8085/api/v1/Customers/"
+import {Url} from "../../configurations/configuration";
+const RestAPIUrl=Url+"api/v1/Customers/"
 
 const validationSchema=yup.object({
     email:yup
@@ -45,6 +46,7 @@ const LoginForm = ({registerStatus,submitStatus}) => {
                        &&(Object.keys((response.data).length>0)))  {
                        alert(JSON.stringify(response.data));
                        sessionStorage.setItem("isSubmit",true);
+                       sessionStorage.setItem("customerId",response.data.id);
                        sessionStorage.setItem("firstName", response.data.name.firstName);
                        sessionStorage.setItem("lastName", response.data.name.lastName);
                        sessionStorage.setItem("email", response.data.email);
