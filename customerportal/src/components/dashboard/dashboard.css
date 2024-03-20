@@ -71,6 +71,21 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.card-logo-header{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-around;
+    font-size: calc(2px + 2vmin);
+    color: white;
+    font-family: var(--font-family);
+    font-weight: normal;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 .p-card-title{
 
@@ -89,4 +104,10 @@
 }
 .p-avatar{
     width:20%;
+}
+
+.p-logo{
+    width:5%;
+    float: left;
+    align-items: start;
 }

@@ -11,6 +11,7 @@ import {getChitsByCustomerId} from "../../services/ChitService";
 import axios from "axios";
 import { Card } from 'primereact/card';
 import { Avatar } from 'primereact/avatar';
+import { Button } from 'primereact/button';
 import {Url} from "../../configurations/configuration";
 
 const RestAPIUrl=Url+"filter/"
@@ -83,7 +84,9 @@ const Dashboard = () => {
                                  pt={{
                                body: { className: 'bg-primary border-round-lg' }
                            }}>
+
                                <div className="card-header">
+                                   <Avatar icon="pi pi-prime" className="p-logo" size="normal" style={{ backgroundColor: '#9c27b0', color: '#ffffff' }} shape="circle" />
                                    <Avatar label="Chit Value" size="normal"
                                            style={{ backgroundColor: '#2196F3',
                                                color: '#ffffff' }} />
@@ -93,6 +96,7 @@ const Dashboard = () => {
                                    <Avatar label="Total Duration" size="normal"
                                            style={{ backgroundColor: '#2196F3',
                                                color: '#ffffff' }} />
+                                   <Button label="Info" severity="help" />
                                </div>
                                <div className="card-header">
 
