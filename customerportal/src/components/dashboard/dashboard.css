@@ -47,14 +47,14 @@
 }
 
 .card {
-    background: var(--surface-card);
+
     padding: 2rem;
     border-radius: 10px;
     margin-bottom: 1rem;
 }
 
 .card-header{
-    background-color: bisque;
+    background-color: white;
 
     display: flex;
     flex-direction: row;
@@ -65,8 +65,8 @@
     color: white;
     font-family: var(--font-family);
     font-weight: normal;
-    background: var(--surface-ground);
-    color: var(--text-color);
+
+    color: black;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -86,4 +86,7 @@
     color: goldenrod;
     width:100%;
     font-weight: bold;
+}
+.p-avatar{
+    width:20%;
 }

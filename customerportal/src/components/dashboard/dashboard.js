@@ -10,6 +10,7 @@ import {items} from "../../models/Items";
 import {getChitsByCustomerId} from "../../services/ChitService";
 import axios from "axios";
 import { Card } from 'primereact/card';
+import { Avatar } from 'primereact/avatar';
 import {Url} from "../../configurations/configuration";
 
 const RestAPIUrl=Url+"filter/"
@@ -83,6 +84,18 @@ const Dashboard = () => {
                                body: { className: 'bg-primary border-round-lg' }
                            }}>
                                <div className="card-header">
+                                   <Avatar label="Chit Value" size="normal"
+                                           style={{ backgroundColor: '#2196F3',
+                                               color: '#ffffff' }} />
+                                   <Avatar label="Installment Amount" size="normal"
+                                           style={{ backgroundColor: '#2196F3',
+                                               color: '#ffffff' }} />
+                                   <Avatar label="Total Duration" size="normal"
+                                           style={{ backgroundColor: '#2196F3',
+                                               color: '#ffffff' }} />
+                               </div>
+                               <div className="card-header">
+
                                <h4>{chit.chitValue}</h4>
                                <h4>{chit.installmentAmount}</h4>
                                <h4>{chit.totalDuration}</h4>
