@@ -22,7 +22,7 @@ const Dashboard = () => {
     const isSubmit=sessionStorage.getItem("isSubmit");
     const customerId=sessionStorage.getItem("customerId");
     const[response,setResponse]=useState([]);
-    let data=[]
+
     useEffect(() => {
       console.log(response);
     }, [response]);
@@ -32,7 +32,7 @@ const Dashboard = () => {
             //alert(JSON.stringify(res.data))
             console.log(JSON.stringify(res.data));
             setResponse(res.data)
-            data=res.data;
+
         })
     }
 
@@ -72,21 +72,22 @@ const Dashboard = () => {
 
             </article>
         </div>
-
-        <section>
-            {
-
-              // response.map(e => <h1 key={e.chitId}>{e.chitId}</h1>)
-                data.forEach(chit =>
-
-                    <Card>
-                        <p>{chit.chitId}</p>
-                    </Card>)
-
-
-            }
-        </section>
-
+          {(response.length>0) &&(
+            <section>
+                {
+                   response.map((chit)=>{
+                       return(
+                           <Card title={"ChitId=" + chit.chitId}>
+                               <h4>{chit.chitValue}</h4>
+                               <h4>{chit.installmentAmount}</h4>
+                               <h4>{chit.totalDuration}</h4>
+                           </Card>
+                       )
+                   })
+                }
+            </section>
+          )
+          }
 
       </div>
     )}
