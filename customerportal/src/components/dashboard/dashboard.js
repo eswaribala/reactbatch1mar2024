@@ -9,7 +9,7 @@ import {Menubar} from "primereact/menubar";
 import {items} from "../../models/Items";
 import {getChitsByCustomerId} from "../../services/ChitService";
 import axios from "axios";
-import {Card} from "@mui/material";
+import { Card } from 'primereact/card';
 import {Url} from "../../configurations/configuration";
 
 const RestAPIUrl=Url+"filter/"
@@ -77,11 +77,18 @@ const Dashboard = () => {
                 {
                    response.map((chit)=>{
                        return(
-                           <Card title={"ChitId=" + chit.chitId}>
+                         <div className="card">
+                           <Card title={"ChitId=" + chit.chitId}
+                                 pt={{
+                               body: { className: 'bg-primary border-round-lg' }
+                           }}>
+                               <div className="card-header">
                                <h4>{chit.chitValue}</h4>
                                <h4>{chit.installmentAmount}</h4>
                                <h4>{chit.totalDuration}</h4>
+                               </div>
                            </Card>
+                         </div>
                        )
                    })
                 }

@@ -45,6 +45,45 @@
 
 
 }
-p{
-    color:white;
+
+.card {
+    background: var(--surface-card);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.card-header{
+    background-color: bisque;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    font-size: calc(2px + 2vmin);
+    color: white;
+    font-family: var(--font-family);
+    font-weight: normal;
+    background: var(--surface-ground);
+    color: var(--text-color);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.p-card-title{
+
+    text-align: left;
+    background-color: goldenrod;
+    color: black;
+    width:20%;
+}
+
+.p-card-content{
+    text-align: left;
+    background-color: white;
+    color: goldenrod;
+    width:100%;
+    font-weight: bold;
 }
