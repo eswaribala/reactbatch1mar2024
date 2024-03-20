@@ -72,6 +72,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 .card-logo-header{
+    position: absolute;
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -87,8 +88,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.p-card-title{
 
+.p-card-title{
+    position: relative;
     text-align: left;
     background-color: goldenrod;
     color: black;
@@ -96,6 +98,7 @@
 }
 
 .p-card-content{
+
     text-align: left;
     background-color: white;
     color: goldenrod;
@@ -107,7 +110,14 @@
 }
 
 .p-logo{
-    width:5%;
+    width:50px;
+    height:50px;
     float: left;
     align-items: start;
+}
+
+legend{
+    color:blueviolet;
+    font-weight: bold;
+
 }
