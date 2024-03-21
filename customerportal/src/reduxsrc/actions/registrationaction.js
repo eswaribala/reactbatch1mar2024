@@ -1,9 +1,18 @@
 import RegisterService from "../services/registerservice";
+import {SAVE_REGISTRATION} from "../types/types";
 
-export const saveRegistration=async(values)=>{
+//step3
+export const saveRegistration=(values) => async (dispatch) => {
 
-    await RegisterService.create(values)
+  const  res =  await RegisterService.create(values);
+    dispatch({
+        type: SAVE_REGISTRATION,
+        payload: res.data,
+    });
+
+
 }
+
 
 
 
