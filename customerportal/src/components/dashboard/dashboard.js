@@ -131,9 +131,9 @@ const Dashboard = () => {
                                            style={{ backgroundColor: '#2196F3',
                                                color: '#ffffff' }} />
                                    <Button label="Pay Now" severity="help" onClick={handleClickOpen} />
-
+                                   {(open) &&(
                                    <DashboardDialog openData={open} change={handleClose}/>
-
+                                     )}
                                </div>
                                <div className="card-header">
                                    <Avatar label={chit.chitValue} size="normal"
