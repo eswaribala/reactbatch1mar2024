@@ -1,5 +1,3 @@
-import {SAVE_REGISTRATION} from "../types/types";
-
 const initialState = {
     loading: false,
     customerValues: [],
