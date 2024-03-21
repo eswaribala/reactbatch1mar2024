@@ -21,9 +21,7 @@ const validationSchema=yup.object({
              /[A-Za-z]{5,25}/,
              "Last Name must contain minimum 5 characters and maximum 25 characters"
          ),
-    dob: yup
-        .string("Enter DOB")
-        .required("DOB Required"),
+
    mobileNo: yup
         .string("Enter Mobile No")
         .required("Mobile No Required")
@@ -61,20 +59,30 @@ const Registration = () => {
 
     const formik=useFormik({
         initialValues:{
-            "firstName":"Parameswari",
-            "lastName":"Ettiappan",
-            "dob":"1970-12-02",
-            "mobileNo":9952032876
+            "firstName":" ",
+            "lastName":"",
+            "email":"",
+            "mobileNo":0,
+            "password":""
         },
         validationSchema:validationSchema,
         onSubmit:(values)=>{
             alert(JSON.stringify(values))
+            alert(userText+","+captchaText);
+            if (userText === captchaText) {
+                alert('Success');
+                //dispatcher
+
+            }else
+            {
+                alert('Incorrect');
+            }
         }
 
     })
 
     return(
-       <div>
+       <div className="Registration">
        <img src={RegisterLogoPath} className="Image"/>
   <form onSubmit={formik.handleSubmit}>
       <TextField id="firstName"
@@ -103,16 +111,16 @@ const Registration = () => {
 
       </TextField>
       <TextField
-          id="dob"
-          label="DOB"
-          type="date"
+          id="email"
+          label="Email"
+          type="email"
           fullWidth
           margin="dense"
-          value={formik.values.dob}
+          value={formik.values.email}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.errors.dob && Boolean(formik.errors.dob)}
-          helperText={formik.touched.dob && formik.errors.dob}
+          error={formik.errors.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.dob && formik.errors.email}
           variant="outlined">
 
       </TextField>
@@ -127,6 +135,20 @@ const Registration = () => {
           onBlur={formik.handleBlur}
           error={formik.errors.mobileNo && Boolean(formik.errors.mobileNo)}
           helperText={formik.touched.mobileNo && formik.errors.mobileNo}
+          variant="outlined">
+
+      </TextField>
+      <TextField
+          id="password"
+          label="Password"
+          type="password"
+          fullWidth
+          margin="dense"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.errors.password && Boolean(formik.errors.password)}
+          helperText={formik.touched.password && formik.errors.password}
           variant="outlined">
 
       </TextField>
