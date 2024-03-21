@@ -1,1 +1,1 @@
-export const Url="http://54.236.47.36:8085/"
+export const Url="http://localhost:5075/"

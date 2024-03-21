@@ -94,7 +94,9 @@
     text-align: left;
     background-color: goldenrod;
     color: black;
-    width:20%;
+    width:10%;
+    font-size: medium;
+
 }
 
 .p-card-content{
