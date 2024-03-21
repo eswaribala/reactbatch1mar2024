@@ -7,13 +7,17 @@ import { BrowserRouter as Router } from "react-router-dom";
 import 'primereact/resources/themes/viva-dark/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
+import {Provider} from "react-redux";
+import store from "./reduxsrc/store/store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+   <Provider store={store}>
    <Router>
     <App />
    </Router>
+   </Provider>
   </React.StrictMode>
 );
 
