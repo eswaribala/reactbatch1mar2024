@@ -31,6 +31,20 @@ const validationSchema=yup.object({
             /^([+]\d{2}[ ])?\d{10}$/,
             "Mobile No should be in 10 digits"
         ),
+    email: yup
+        .string("Enter Email")
+        .required("Email Required")
+        .matches(
+            /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+            "Email Format Invalid"
+        ),
+    password: yup
+        .string("Enter Password")
+        .required("Password Required")
+        .matches(
+            /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}/,
+            "Last Name must contain minimum 5 characters and maximum 25 characters"
+        ),
     }
 )
 

@@ -119,7 +119,7 @@ const Dashboard = () => {
 
                                <div className="card-header">
                                    <Avatar icon="pi pi-megaphone" className="p-logo" size="large"
-                                           style={{ backgroundColor: '#9c27b0', color: '#ffffff' }} shape="circle" />
+                                           style={{ backgroundColor: '#9c27b0', color: '#ffffff', padding:'inherit' }} shape="circle" />
 
                                    <Avatar label="Chit Value" size="normal"
                                            style={{ backgroundColor: '#2196F3',

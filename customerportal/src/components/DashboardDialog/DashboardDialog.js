@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import './DashboardDialog.css';
 import Dialog from "@mui/material/Dialog";
-import {DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
+import {Alert, DialogActions, DialogContent, DialogTitle, Snackbar, TextField} from "@mui/material";
 import {Button} from "primereact/button";
 import * as yup from "yup";
 import {useFormik} from "formik";
@@ -37,6 +37,7 @@ const validationSchema=yup.object({
 )
 const DashboardDialog = ({openData,change}) => {
     const [open, setOpen] = React.useState(false);
+    const [show, setShow] = React.useState(false);
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -63,6 +64,14 @@ const DashboardDialog = ({openData,change}) => {
 
 
     })
+    function handleSnackBarOpen(){
+        setShow(true)
+    }
+    function handleSnackBarClose(){
+        setShow(false)
+    }
+
+
     function handleClick(event){
         event.preventDefault();
         alert(JSON.stringify(formik.values))
@@ -93,7 +102,7 @@ const DashboardDialog = ({openData,change}) => {
         }
         axios.post(Url+"api/v1/ChitTransactions?Id="+formik.values.chitId, data).then(res => {
             alert(JSON.stringify(res));
-
+            setShow(true)
 
         }).catch(error => {
             throw(error);
@@ -180,6 +189,23 @@ const DashboardDialog = ({openData,change}) => {
 
 
       </Dialog>
+      {(show)&&(
+      <div>
+
+      <Snackbar
+          open={show}
+          autoHideDuration={5000}
+          onClose={handleSnackBarClose}
+      >
+          <Alert
+              onClose={handleSnackBarClose}
+              severity="success"
+              variant="filled"
+              sx={{ width: '100%' }}
+          > Payment Completed Successfully </Alert>
+      </Snackbar>
+      </div>)
+      }
   </div>
 )};
 

@@ -72,7 +72,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 .card-logo-header{
-    position: absolute;
+
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -90,7 +90,7 @@
 
 
 .p-card-title{
-    position: relative;
+    position: absolute;
     text-align: left;
     background-color: goldenrod;
     color: black;
@@ -116,6 +116,7 @@
     height:50px;
     float: left;
     align-items: start;
+    padding:2%;
 }
 
 legend{
