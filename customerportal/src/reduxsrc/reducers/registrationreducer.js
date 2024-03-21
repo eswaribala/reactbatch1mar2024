@@ -9,7 +9,7 @@ const initialState = {
 const registrationReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case SAVE_REGISTRATION:
+        case 'SAVE_REGISTRATION':
             return {
                 loading: false,
                 customerValues: action.payload,
