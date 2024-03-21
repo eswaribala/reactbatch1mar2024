@@ -18,6 +18,7 @@ import {InputText} from "primereact/inputtext";
 import {Box, DialogActions, DialogContent, DialogTitle, Modal, TextField, Typography} from "@mui/material";
 import * as yup from "yup";
 import {useFormik} from "formik";
+import DashboardDialog from "../DashboardDialog/DashboardDialog";
 
 const RestAPIUrl=Url+"filter/"
 
@@ -63,7 +64,9 @@ const Dashboard = () => {
         setOpen(true);
     };
 
-
+     function handleClose(value){
+         setOpen(value);
+     }
 
 
     if(isSubmit){
@@ -128,6 +131,8 @@ const Dashboard = () => {
                                            style={{ backgroundColor: '#2196F3',
                                                color: '#ffffff' }} />
                                    <Button label="Pay Now" severity="help" onClick={handleClickOpen} />
+
+                                   <DashboardDialog openData={open} change={handleClose}/>
 
                                </div>
                                <div className="card-header">

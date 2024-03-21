@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import './DashboardDialog.css';
 import Dialog from "@mui/material/Dialog";
@@ -35,7 +35,7 @@ const validationSchema=yup.object({
             )
     }
 )
-const DashboardDialog = () => {
+const DashboardDialog = ({openData,change}) => {
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
         setOpen(true);
@@ -43,7 +43,12 @@ const DashboardDialog = () => {
 
     const handleClose = () => {
         setOpen(false);
+        openData=false;
+        change(false);
     };
+    useEffect(() => {
+        setOpen(openData)
+    }, [open]);
 
     const formik=useFormik({
         initialValues:{
