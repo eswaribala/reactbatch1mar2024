@@ -6,8 +6,10 @@ import {thunk} from "redux-thunk";
 
 const index = configureStore({
     reducer:   rootReducer,
-    middleware: thunk
+   middleware:[thunk]
 
 });
+
+
 
 export default index;

@@ -3,7 +3,6 @@ import {ExpressUrl} from "../../configurations/configuration";
 import axios from "axios";
 
 
-export const { SAVE_REGISTRATION } = registrationSlice.actions;
 const registrationSlice
     = createSlice({
     name: 'RegistrationStatus',
@@ -22,5 +21,6 @@ const registrationSlice
         }
     }
 });
+export const { SAVE_REGISTRATION } = registrationSlice.actions;
 
-export default registrationSlice
+export default registrationSlice.reducer;

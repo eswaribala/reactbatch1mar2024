@@ -13,7 +13,7 @@ function App() {
   const[currentTime,setCurrentTime]=useState(new Date())
   const[isRegister,setIsRegister] = useState(false)
   const [isSubmit,setIsSubmit]=useState(false);
-  const registrationState= useSelector((state)=>state.registrationReducer)
+ // const registrationState= useSelector((state)=>state.registrationReducer)
  //react hook - react effect
     useEffect(()=>{
         setInterval(()=>{
