@@ -2,12 +2,9 @@
   "name": "customeronodeapi",
   "version": "0.0.0",
   "private": true,
-
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3"
-
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.5",
+    "express": "^4.15.2"
   }
 }

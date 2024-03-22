@@ -1,14 +1,11 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {applyMiddleware, configureStore, createStore} from '@reduxjs/toolkit';
 import rootReducer from "../reducers";
 import {thunk} from "redux-thunk";
 
 //step1
 
-const index = configureStore({
-    reducer:   rootReducer,
-   middleware:[thunk]
-
-});
+const index =
+    createStore(rootReducer,applyMiddleware(thunk))
 
 
 
