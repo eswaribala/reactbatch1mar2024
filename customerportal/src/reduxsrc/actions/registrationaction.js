@@ -8,6 +8,7 @@ export const saveRegistration=(values) => async (dispatch) => {
         dispatch({
             type: SAVE_REGISTRATION,
             payload: res.data,
+            isLoaded: false
         });
         return Promise.resolve(res.data);
     }catch (err) {

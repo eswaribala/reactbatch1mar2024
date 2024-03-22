@@ -5,8 +5,9 @@ import * as yup from 'yup'
 import {useFormik} from "formik";
 import RegisterLogoPath from '../../assets/register.jpg'
 import Captcha from "../captcha/captcha";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {saveRegistration} from "../../reduxsrc/actions/registrationaction";
+import registrationReducer from "../../reduxsrc/reducers/registrationreducer";
 
 const validationSchema=yup.object({
     firstName:yup
@@ -55,6 +56,8 @@ const Registration = () => {
 
     //STEP1
     const dispatch = useDispatch();
+    //const registrationState= useSelector((state)=>state.registrationReducer)
+
 
     function handleChange(value1,value2){
         setCaptchaText(value1);
@@ -74,25 +77,36 @@ const Registration = () => {
         onSubmit:(values)=>{
             alert(JSON.stringify(values))
             alert(userText+","+captchaText);
-            if (userText === captchaText) {
-                alert('Success');
+            //if (userText === captchaText) {
+               // alert('Success');
                 //Step 2
                 //dispatcher
                 dispatch(saveRegistration(values)).then(response=>{
-
+                    alert(JSON.stringify(response));
                 })
 
 
-            }else
-            {
-                alert('Incorrect');
-            }
+            //}else
+            //{
+           //     alert('Incorrect');
+          //  }
         }
 
     })
 
     return(
        <div className="Registration">
+           {/*{
+               (registrationState.isLoaded)?
+                   <>
+                     <p>{registrationState.user.name.firstName}</p>
+                   </> :
+
+                   <>
+                     <h6>No User Registered</h6>
+                   </>
+           }*/}
+
        <img src={RegisterLogoPath} className="Image"/>
   <form onSubmit={formik.handleSubmit}>
       <TextField id="firstName"

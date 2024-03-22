@@ -1,17 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import {Component, useEffect, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 import Logo from './components/Logo/Logo'
 import Banner from './components/Banner/Banner'
 import LoginForm from './components/LoginForm/LoginForm'
 import Registration from "./components/registration/registration";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/dashboard/dashboard";
+import {useSelector} from "react-redux";
 function App() {
 //react hook -- state initialization
   const[currentTime,setCurrentTime]=useState(new Date())
   const[isRegister,setIsRegister] = useState(false)
   const [isSubmit,setIsSubmit]=useState(false);
+  const registrationState= useSelector((state)=>state.registrationReducer)
  //react hook - react effect
     useEffect(()=>{
         setInterval(()=>{
@@ -36,6 +38,16 @@ function App() {
               <h1 className="multicolortext">Customer Portal</h1>
               <h4>{currentTime.toLocaleTimeString()}</h4>
           </header>
+               {/*{
+                   (registrationState.isLoaded)?
+                       <>
+                           <p>{registrationState.user.name.firstName}</p>
+                       </> :
+
+                       <>
+                           <h6>No User Registered</h6>
+                       </>
+               }*/}
           <section className="Form-header">
 
               <div className="Form-header">

@@ -1,17 +1,13 @@
-const initialState = {
-    loading: false,
-    customerValues: [],
-    error: ''
-}
+import {SAVE_REGISTRATION} from "../types/types";
 
-const registrationReducer = (state = initialState, action) => {
+const registrationReducer = (state = {}, action) => {
     switch (action.type) {
 
-        case 'SAVE_REGISTRATION':
+        case SAVE_REGISTRATION:
             return {
-                loading: false,
-                customerValues: action.payload,
-                error: ''
+                ...state,
+                isLoaded: true,
+                user:action.payload
             }
 
 
