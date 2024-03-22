@@ -22,3 +22,5 @@ const registrationSlice
         }
     }
 });
+
+export default registrationSlice

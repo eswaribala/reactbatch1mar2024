@@ -8,6 +8,7 @@ import Captcha from "../captcha/captcha";
 import {useDispatch, useSelector} from "react-redux";
 import {saveRegistration} from "../../reduxsrc/actions/registrationaction";
 import registrationReducer from "../../reduxsrc/reducers/registrationreducer";
+import {saveRegistrationAsync} from "../../reduxsrc/actions/registrationactionv1";
 
 const validationSchema=yup.object({
     firstName:yup
@@ -81,7 +82,7 @@ const Registration = () => {
                // alert('Success');
                 //Step 2
                 //dispatcher
-                dispatch(saveRegistration(values)).then(response=>{
+                dispatch(saveRegistrationAsync(values)).then(response=>{
                     alert(JSON.stringify(response));
                 })
 

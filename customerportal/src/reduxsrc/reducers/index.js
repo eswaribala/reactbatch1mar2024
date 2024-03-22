@@ -1,9 +1,10 @@
 import {combineReducers} from 'redux'
-import registrationReducer from "./registrationreducer";
+import registrationSlice from "./registrationreducerv1";
+
 
 
 const rootReducer = combineReducers({
-    registrationReducer
+    registrationSlice
 })
 
 export default rootReducer

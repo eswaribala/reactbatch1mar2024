@@ -1,16 +1,16 @@
 import {saveRegistration} from "./registrationaction";
-import {SAVE_REGISTRATION} from "../types/types";
+import { SAVE_REGISTRATION } from '../reducers/registrationreducerv1'
 import RegisterService from "../services/registerservice";
 
 
-const saveRegistrationAsync = (values) => {
+export const saveRegistrationAsync = (values) => {
     return async (dispatch) => {
 
         try {
             setTimeout(() => {
                 const res = RegisterService.create(values);
                  const payload=res.data
-                dispatch(payload);
+                dispatch(SAVE_REGISTRATION(payload));
             }, 1000);
 
         } catch (error) {

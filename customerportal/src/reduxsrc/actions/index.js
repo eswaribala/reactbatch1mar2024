@@ -1,8 +1,8 @@
-import {saveRegistration} from "./registrationaction";
+import {saveRegistrationAsync} from "./registrationactionv1";
 
 
 const allActions = {
-    saveRegistration
+    saveRegistrationAsync
 
 }
 
