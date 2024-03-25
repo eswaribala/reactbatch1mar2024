@@ -19,7 +19,8 @@ import {Box, DialogActions, DialogContent, DialogTitle, Modal, TextField, Typogr
 import * as yup from "yup";
 import {useFormik} from "formik";
 import DashboardDialog from "../DashboardDialog/DashboardDialog";
-import {useNavigate} from "react-router-dom";
+import Dashboardmenu from "../dashboardmenu/dashboardmenu";
+
 
 const RestAPIUrl=Url+"filter/"
 
@@ -44,51 +45,9 @@ const Dashboard = () => {
     const customerId=sessionStorage.getItem("customerId");
     const[response,setResponse]=useState([]);
     const [open, setOpen] = React.useState(false);
-    const navigate=useNavigate()
-
-    const items=[{
-        label: 'Home',
-        icon: 'pi pi-home'
-    },
-        {
-            label: 'MyTickets',
-            icon: 'pi pi-ticket'
-        },
-        {
-            label: 'Due Payment',
-            icon: 'pi-money-bill',
-
-            command: () => {
-                //  event.preventDefault()
-                // window.location.href = "/customers"
-                navigate("/customers")
-            }
-        },
-        {
-            label: 'Receipts',
-            icon: 'pi pi-book'
-        },
-        {
-            label: 'More',
-            icon: 'pi pi-search',
-            items:[{
-                label: 'Branch Locator',
-                icon: 'pi pi-globe'
-            },
-                {
-                    label: 'New/Vacancy',
-                    icon: 'pi pi-plus'
-                },
-                {
-                    label: 'FAQ',
-                    icon: 'pi pi-question-circle'
-                }
-            ]
-
-        }
 
 
-    ]
+
 
 
 
@@ -121,14 +80,7 @@ const Dashboard = () => {
         return (
       <div onLoad={handleLoad}>
         <div>
-            <header className="header">
-                <Logo/>
-                <Menubar key={items.label} model={items}></Menubar>
-                <div className="welcome">
-                    <h4>Hi&nbsp;&nbsp;{firstName}</h4>
-                    &nbsp;&nbsp;<span className="pi pi-user"></span>
-                </div>
-            </header>
+           <Dashboardmenu name={firstName}/>
             <article className="article">
                 <div className="Account">
                     <AccountCircleIcon color="primary" sx={{fontSize: 110}}

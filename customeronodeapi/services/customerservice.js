@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var CustomerModel= require('../schemas/customerschema').CustomerModel;
 
-mongoose.connect('mongodb://localhost:27017/batch1chitdb?directconnection=true');
+mongoose.connect('mongodb://localhost:27017/batch1chitdb?directConnection=true');
 
 
 //mongoose.connect(config.url, config.mongodb, config.mongoport);
@@ -22,7 +22,9 @@ module.exports.Add=function(obj)
             phone:obj.mobileNo
 
         });
-    obj.save();
+    obj.save().then(function(){
+        console.log("object saved")
+    })
 
 }
 
