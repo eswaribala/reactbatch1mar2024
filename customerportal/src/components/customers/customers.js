@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './customers.css';
-
+import Dashboardmenu from "../dashboardmenu/dashboardmenu";
+import { Route } from "react-router-dom";
 const Customers = () => {
-
-
-
+ const name=sessionStorage.getItem("firstName");
     return (
   <div className="customers">
-   <h1>Customers</h1>
+   <Dashboardmenu name={name}></Dashboardmenu>
   </div>
 )};
 

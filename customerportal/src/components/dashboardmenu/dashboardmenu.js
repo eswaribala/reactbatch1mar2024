@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createContext} from 'react';
 import PropTypes from 'prop-types';
 import './dashboardmenu.css';
 import Logo from "../Logo/Logo";
@@ -6,9 +6,17 @@ import {Menubar} from "primereact/menubar";
 import {useNavigate} from "react-router-dom";
 const Dashboardmenu = ({name}) => {
     const navigate=useNavigate()
+
+    const UserContext = createContext();
+
     const items=[{
         label: 'Home',
-        icon: 'pi pi-home'
+        icon: 'pi pi-home',
+        command: () => {
+            //  event.preventDefault()
+            // window.location.href = "/customers"
+            navigate("/dashboard")
+        }
     },
         {
             label: 'MyTickets',
