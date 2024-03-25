@@ -1,10 +1,14 @@
 import {combineReducers} from 'redux'
-import registrationSlice from "./registrationreducerv1";
+import userReducer from "./registrationreducerv1"
+import {contentSlice} from "./fetchregistrationreducer";
 
 
 
 const rootReducer = combineReducers({
-    registrationSlice
+    reducer: {
+        slicer: userReducer,
+        content: contentSlice
+    },
 })
 
 export default rootReducer

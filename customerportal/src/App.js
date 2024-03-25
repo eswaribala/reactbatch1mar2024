@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, {Component, useEffect, useState} from "react";
+import React, {Component, createContext, useEffect, useState} from "react";
 import Logo from './components/Logo/Logo'
 import Banner from './components/Banner/Banner'
 import LoginForm from './components/LoginForm/LoginForm'
@@ -8,13 +8,16 @@ import Registration from "./components/registration/registration";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/dashboard/dashboard";
 import {useSelector} from "react-redux";
+import Customers from "./components/customers/customers";
 function App() {
 //react hook -- state initialization
   const[currentTime,setCurrentTime]=useState(new Date())
   const[isRegister,setIsRegister] = useState(false)
   const [isSubmit,setIsSubmit]=useState(false);
  // const registrationState= useSelector((state)=>state.registrationReducer)
- //react hook - react effect
+
+
+    //react hook - react effect
     useEffect(()=>{
         setInterval(()=>{
             setCurrentTime(new Date())
@@ -31,6 +34,8 @@ function App() {
 
   return (
       <div className="App">
+
+
           {(!isSubmit) && (
            <div>
           <header className="App-header">
@@ -62,6 +67,9 @@ function App() {
          <section>
           <Routes>
               <Route path="/dashboard" element={<Dashboard/>}></Route>
+
+              <Route path="/customers" element={<Customers/>}></Route>
+
               <Route path="/" element={<App/>}></Route>
           </Routes>
          </section>

@@ -1,4 +1,3 @@
-var usersRouter = require('./routes/users');
 var customerRouter=require('./routes/customers')
 const express = require("express");
 const {json, urlencoded} = require("body-parser");
@@ -9,8 +8,8 @@ app.use(json());
 app.use(urlencoded({extended:true}));
 app.use(cors());
 
-app.use('/users', usersRouter);
-app.use('/customers', customerRouter)
+
+app.use('/api', customerRouter)
 
 
 

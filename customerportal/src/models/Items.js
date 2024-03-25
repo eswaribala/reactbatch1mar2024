@@ -1,3 +1,7 @@
+import React from 'react';
+
+import {useNavigate} from "react-router-dom";
+
 export  const items=[{
     label: 'Home',
     icon: 'pi pi-home'
@@ -8,7 +12,11 @@ export  const items=[{
     },
     {
         label: 'Due Payment',
-        icon: 'pi-money-bill'
+        icon: 'pi-money-bill',
+        command: () => {
+          //  event.preventDefault()
+            handleEvent()
+        }
     },
     {
         label: 'Receipts',
@@ -35,3 +43,9 @@ export  const items=[{
 
 
 ]
+
+const handleEvent=()=>{
+
+    //event.preventDefault()
+    window.location.href="/customers"
+}

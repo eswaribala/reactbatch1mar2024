@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {saveRegistration} from "../../reduxsrc/actions/registrationaction";
 import registrationReducer from "../../reduxsrc/reducers/registrationreducer";
 import {saveRegistrationAsync} from "../../reduxsrc/actions/registrationactionv1";
+import registrationSlice from "../../reduxsrc/reducers/registrationreducerv1";
 
 const validationSchema=yup.object({
     firstName:yup
@@ -59,7 +60,11 @@ const Registration = () => {
     const dispatch = useDispatch();
     //const registrationState= useSelector((state)=>state.registrationReducer)
 
+    const registrationState = useSelector(state => state.slicer);
+    const contents = useSelector((state) => state.content.contents)
 
+     //alert(isLoaded)
+   // const {isLoaded }= useSelector((state)=>state.slicer.isLoaded)
     function handleChange(value1,value2){
         setCaptchaText(value1);
         setUserText(value2);
@@ -96,94 +101,109 @@ const Registration = () => {
     })
 
     return(
-       <div className="Registration">
-           {/*{
-               (registrationState.isLoaded)?
-                   <>
-                     <p>{registrationState.user.name.firstName}</p>
-                   </> :
+        <div className="Registration">
+            {
 
-                   <>
-                     <h6>No User Registered</h6>
-                   </>
-           }*/}
+                (registrationState.isLoaded) ?
+                    <>
 
-       <img src={RegisterLogoPath} className="Image"/>
-  <form onSubmit={formik.handleSubmit}>
-      <TextField id="firstName"
-                 label="First Name"
-                 value={formik.values.firstName}
-                 onChange={formik.handleChange}
-                 onBlur={formik.handleBlur}
-                 error={formik.errors.firstName && Boolean(formik.errors.firstName)}
-                 helperText={formik.touched.firstName && formik.errors.firstName}
-                 fullWidth
-                 margin="dense"
-                 variant="outlined">
+                        <p>{registrationState.user.name.firstName}</p>
+                    </> :
 
-      </TextField>
-      <TextField
-          id="lastName"
-          label="Last Name"
-          fullWidth
-          margin="dense"
-          variant="outlined"
-          value={formik.values.lastName}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.errors.lastName && Boolean(formik.errors.lastName)}
-          helperText={ formik.touched.lastName && formik.errors.lastName}>
+                    <>
+                        <h6>No User Registered</h6>
+                    </>
+            }
 
-      </TextField>
-      <TextField
-          id="email"
-          label="Email"
-          type="email"
-          fullWidth
-          margin="dense"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.errors.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.dob && formik.errors.email}
-          variant="outlined">
+            <div>
 
-      </TextField>
-      <TextField
-          id="mobileNo"
-          label="Mobile No"
-          type="number"
-          fullWidth
-          margin="dense"
-          value={formik.values.mobileNo}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.errors.mobileNo && Boolean(formik.errors.mobileNo)}
-          helperText={formik.touched.mobileNo && formik.errors.mobileNo}
-          variant="outlined">
+                {
 
-      </TextField>
-      <TextField
-          id="password"
-          label="Password"
-          type="password"
-          fullWidth
-          margin="dense"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.errors.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-          variant="outlined">
+                    contents.map((content) => {
+                        alert(JSON.stringify(contents[0]).content)
+                    return(
+                    <div key={content.id}>
+                     <h4>{content.customerId}</h4>
+                    </div>
+                )})}
+            </div>
+            <img src={RegisterLogoPath} className="Image"/>
+            <form onSubmit={formik.handleSubmit} autocomplete="off">
+                <TextField id="firstName"
+                           label="First Name"
+                           value={formik.values.firstName}
+                           onChange={formik.handleChange}
+                           onBlur={formik.handleBlur}
+                           error={formik.errors.firstName && Boolean(formik.errors.firstName)}
+                           helperText={formik.touched.firstName && formik.errors.firstName}
+                           fullWidth
+                           margin="dense"
+                           variant="outlined">
 
-      </TextField>
-      <Captcha change={handleChange}/>
-      <Button type="submit" color="success" variant="contained">
-         Continue To Register
-      </Button>
-  </form>
-       </div>
-)};
+                </TextField>
+                <TextField
+                    id="lastName"
+                    label="Last Name"
+                    fullWidth
+                    margin="dense"
+                    variant="outlined"
+                    value={formik.values.lastName}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.errors.lastName && Boolean(formik.errors.lastName)}
+                    helperText={formik.touched.lastName && formik.errors.lastName}>
+
+                </TextField>
+                <TextField
+                    id="email"
+                    label="Email"
+                    type="email"
+                    fullWidth
+                    margin="dense"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.errors.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.dob && formik.errors.email}
+                    variant="outlined">
+
+                </TextField>
+                <TextField
+                    id="mobileNo"
+                    label="Mobile No"
+                    type="number"
+                    fullWidth
+                    margin="dense"
+                    value={formik.values.mobileNo}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.errors.mobileNo && Boolean(formik.errors.mobileNo)}
+                    helperText={formik.touched.mobileNo && formik.errors.mobileNo}
+                    variant="outlined">
+
+                </TextField>
+                <TextField
+                    id="password"
+                    label="Password"
+                    type="password"
+                    fullWidth
+                    margin="dense"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.errors.password && Boolean(formik.errors.password)}
+                    helperText={formik.touched.password && formik.errors.password}
+                    variant="outlined">
+
+                </TextField>
+                <Captcha change={handleChange}/>
+                <Button type="submit" color="success" variant="contained">
+                    Continue To Register
+                </Button>
+            </form>
+        </div>
+    )
+};
 
 
 export default Registration;

@@ -7,14 +7,13 @@ export const saveRegistrationAsync = (values) => {
     return async (dispatch) => {
 
         try {
-            setTimeout(() => {
-                const res = RegisterService.create(values);
-                 const payload=res.data
-                dispatch(SAVE_REGISTRATION(payload));
-            }, 1000);
+             const res = await RegisterService.create(values);
+             const payload=res.data
+             dispatch(SAVE_REGISTRATION(payload));
 
-        } catch (error) {
-
+            return Promise.resolve(res.data);
+        } catch (err) {
+            return Promise.reject(err);
         }
     };
 };
