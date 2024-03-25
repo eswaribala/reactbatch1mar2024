@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var CustomerModel= require('../schemas/customerschema').CustomerModel;
 
-mongoose.connect('mongodb://localhost:27017/batch1chitdb');
+mongoose.connect('mongodb://localhost:27017/batch1chitdb?directconnection=true');
 
 
 //mongoose.connect(config.url, config.mongodb, config.mongoport);

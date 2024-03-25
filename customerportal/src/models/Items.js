@@ -13,10 +13,11 @@ export  const items=[{
     {
         label: 'Due Payment',
         icon: 'pi-money-bill',
-        command: () => {
+        url: "/customers"
+       /* command: () => {
           //  event.preventDefault()
-            handleEvent()
-        }
+            window.location.href="/customers"
+        }*/
     },
     {
         label: 'Receipts',
@@ -43,9 +44,3 @@ export  const items=[{
 
 
 ]
-
-const handleEvent=()=>{
-
-    //event.preventDefault()
-    window.location.href="/customers"
-}

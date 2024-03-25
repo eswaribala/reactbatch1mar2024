@@ -38,7 +38,7 @@ const LoginForm = ({registerStatus,submitStatus}) => {
         onSubmit:(values)=>{
           //alert(JSON.stringify(values))
             alert(userInput+" "+captchaText);
-            if (userInput === captchaText) {
+           // if (userInput === captchaText) {
                 alert('Success');
                 axios.get(RestAPIUrl+values.email+"/"+values.password)
                     .then(response=>{
@@ -53,19 +53,17 @@ const LoginForm = ({registerStatus,submitStatus}) => {
                        sessionStorage.setItem("phone", response.data.phone);
                        handleSubmitChange();
                        navigate("/dashboard");
-                   }else{
-                       navigate("/");
-                   }
+                  }
                 })
 
 
 
-            } else {
-                alert('Incorrect');
+        //    } else {
+        //        alert('Incorrect');
                 //const canvas = canvasRef.current;
                // const ctx = canvas.getContext('2d');
               //  initializeCaptcha(ctx);
-            }
+        //    }
         }
 
     });

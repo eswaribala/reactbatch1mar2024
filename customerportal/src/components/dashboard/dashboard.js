@@ -6,7 +6,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Logo from "../Logo/Logo";
 import {Menubar} from "primereact/menubar";
-import {items} from "../../models/Items";
+//import {items} from "../../models/Items";
 import {getChitsByCustomerId} from "../../services/ChitService";
 import axios from "axios";
 import { Card } from 'primereact/card';
@@ -44,6 +44,51 @@ const Dashboard = () => {
     const customerId=sessionStorage.getItem("customerId");
     const[response,setResponse]=useState([]);
     const [open, setOpen] = React.useState(false);
+    const navigate=useNavigate()
+
+    const items=[{
+        label: 'Home',
+        icon: 'pi pi-home'
+    },
+        {
+            label: 'MyTickets',
+            icon: 'pi pi-ticket'
+        },
+        {
+            label: 'Due Payment',
+            icon: 'pi-money-bill',
+
+            command: () => {
+                //  event.preventDefault()
+                // window.location.href = "/customers"
+                navigate("/customers")
+            }
+        },
+        {
+            label: 'Receipts',
+            icon: 'pi pi-book'
+        },
+        {
+            label: 'More',
+            icon: 'pi pi-search',
+            items:[{
+                label: 'Branch Locator',
+                icon: 'pi pi-globe'
+            },
+                {
+                    label: 'New/Vacancy',
+                    icon: 'pi pi-plus'
+                },
+                {
+                    label: 'FAQ',
+                    icon: 'pi pi-question-circle'
+                }
+            ]
+
+        }
+
+
+    ]
 
 
 

@@ -70,7 +70,7 @@ function App() {
 
               <Route path="/customers" element={<Customers/>}></Route>
 
-              <Route path="/" element={<App/>}></Route>
+       {/*       <Route path="/" element={<App/>}></Route>*/}
           </Routes>
          </section>
               )}
