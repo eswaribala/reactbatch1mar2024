@@ -1,18 +1,26 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import './customers.css';
 
 import {Route, useLocation} from "react-router-dom";
 import {UserContext} from "../dashboard/dashboard";
 import Dashboardmenu from "../dashboardmenu/dashboardmenu";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllCustomers} from "../../reduxsrc/reducers/duepaymentreducer";
 
 
 const Customers = () => {
+
+    const dispatch=useDispatch()
 // const name=sessionStorage.getItem("firstName");
    // const location = useLocation();
     const customers = useSelector(state => state.topSlicer.dueSlicer.customers);
     const isLoading = useSelector(state => state.topSlicer.dueSlicer.isLoading);
+    useEffect(()=>{
+        dispatch(fetchAllCustomers())
+    })
+
+
     return (
         <div className="customers">
 

@@ -27,9 +27,12 @@ export default duePaymentSlice.reducer;
 
 export const fetchAllCustomers=()=>(dispatch)=>{
 
-    axios.get(ExpressUrl+"api/customers").then(response=>{
-        dispatch(fetch(response.data));
-    })
+    axios
+        .get(ExpressUrl+"api/customers")
+        .then((response) => {
+            dispatch(fetch(response.data));
+        })
+        .catch((error) => console.log(error));
 }
 
 
