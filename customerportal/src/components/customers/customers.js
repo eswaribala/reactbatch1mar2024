@@ -7,6 +7,8 @@ import {UserContext} from "../dashboard/dashboard";
 import Dashboardmenu from "../dashboardmenu/dashboardmenu";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAllCustomers} from "../../reduxsrc/reducers/duepaymentreducer";
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
 
 
 const Customers = () => {
@@ -28,16 +30,13 @@ const Customers = () => {
             {
                 (isLoading)?
                     <>
-                        {
-                            customers.map((customer)=>{
-                                return (
-                                    <>
-                                    <h4>{customer.firstName}</h4>
-                                    <h4>{customer.firstName}</h4>
-                                    </>
-                                )
-                            })
-                        }
+                        <DataTable value={customers} paginator rows={3} rowsPerPageOptions={[3, 9, 12, 15]} tableStyle={{ minWidth: '50rem' }}>
+                            <Column field="customerId" header="Customer Id" style={{ width: '25%' }}></Column>
+                            <Column field="firstName" header="First Name" style={{ width: '25%' }}></Column>
+                            <Column field="lastName" header="Last Name" style={{ width: '25%' }}></Column>
+                            <Column field="email" header="Email" style={{ width: '25%' }}></Column>
+
+                        </DataTable>
                     </> :
                     <>
                     <h1>Customers Not Available</h1>
