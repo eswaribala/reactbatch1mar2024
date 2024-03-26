@@ -18,7 +18,7 @@ const Customers = () => {
     const isLoading = useSelector(state => state.topSlicer.dueSlicer.isLoading);
     useEffect(()=>{
         dispatch(fetchAllCustomers())
-    })
+    },[dispatch])
 
 
     return (
