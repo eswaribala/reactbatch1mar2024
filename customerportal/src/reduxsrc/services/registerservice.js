@@ -1,12 +1,18 @@
 import axios from "axios";
 import {Url} from '../../configurations/configuration'
+import { AES } from 'crypto-js';
+const secretPass = "XkhZG4fW2t2W";
 
 const create = (data) => {
     let requestData={
         "id": 0,
         "name": {
-            "firstName": data.firstName,
-            "lastName": data.lastName,
+            "firstName": AES.encrypt( JSON.stringify(data.firstName),
+                secretPass
+            ).toString(),
+            "lastName": AES.encrypt( JSON.stringify(data.lastName),
+                secretPass
+            ).toString(),
             "middleName": ""
         },
         "email": data.email,

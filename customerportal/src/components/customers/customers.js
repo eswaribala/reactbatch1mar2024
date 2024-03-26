@@ -31,7 +31,7 @@ const Customers = () => {
                 (isLoading)?
                     <>
                         <DataTable value={customers} paginator rows={3} rowsPerPageOptions={[3, 9, 12, 15]} tableStyle={{ minWidth: '50rem' }}>
-                            <Column field="customerId" header="Customer Id" style={{ width: '25%' }}></Column>
+                            <Column field="_id" header="Customer Id" style={{ width: '25%' }}></Column>
                             <Column field="firstName" header="First Name" style={{ width: '25%' }}></Column>
                             <Column field="lastName" header="Last Name" style={{ width: '25%' }}></Column>
                             <Column field="email" header="Email" style={{ width: '25%' }}></Column>

@@ -10,7 +10,8 @@ import {saveRegistration} from "../../reduxsrc/actions/registrationaction";
 import registrationReducer from "../../reduxsrc/reducers/registrationreducer";
 import {saveRegistrationAsync} from "../../reduxsrc/actions/registrationactionv1";
 import registrationSlice from "../../reduxsrc/reducers/registrationreducerv1";
-
+import {AES,enc} from 'crypto-js'
+const secretPass = "XkhZG4fW2t2W";
 const validationSchema=yup.object({
     firstName:yup
         .string("Enter First Name")
@@ -107,7 +108,7 @@ const Registration = () => {
                 (isLoaded) ?
                     <>
 
-                        <p>{user.name.firstName}</p>
+                        <p>{JSON.parse(AES.decrypt(user.name.firstName, secretPass).toString(enc.Utf8))}</p>
                     </> :
 
                     <>

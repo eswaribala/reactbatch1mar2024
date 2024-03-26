@@ -1,1 +1,18 @@
 .Customers {}
+
+.p-datatable{
+    padding: 5%;
+    background-color: black;
+}
+.p-datatable-table{
+    background-color: goldenrod;
+}
+.p-datatable-thead{
+    background-color: goldenrod;
+}
+.p-datatable-tbody{
+    background-color: goldenrod;
+}
+.p-column-title{
+    color:blueviolet;
+}
