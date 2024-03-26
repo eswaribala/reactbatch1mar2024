@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import './dashboard.css';
 import EmailIcon from "@mui/icons-material/Email";
@@ -20,8 +20,8 @@ import * as yup from "yup";
 import {useFormik} from "formik";
 import DashboardDialog from "../DashboardDialog/DashboardDialog";
 import Dashboardmenu from "../dashboardmenu/dashboardmenu";
-
-
+//step 1
+export const CustomerContext = createContext();
 const RestAPIUrl=Url+"filter/"
 
 const style = {
@@ -46,7 +46,7 @@ const Dashboard = () => {
     const[response,setResponse]=useState([]);
     const [open, setOpen] = React.useState(false);
 
-
+    const [user, setUser] = useState(firstName);
 
 
 
@@ -80,7 +80,9 @@ const Dashboard = () => {
         return (
       <div onLoad={handleLoad}>
         <div>
-           <Dashboardmenu name={firstName}/>
+            <CustomerContext.Provider value={firstName}>
+              <Dashboardmenu />
+            </CustomerContext.Provider>
             <article className="article">
                 <div className="Account">
                     <AccountCircleIcon color="primary" sx={{fontSize: 110}}

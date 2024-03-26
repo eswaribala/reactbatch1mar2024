@@ -19,9 +19,9 @@ function App() {
 
     //react hook - react effect
     useEffect(()=>{
-        setInterval(()=>{
-            setCurrentTime(new Date())
-        },1000)
+       // setInterval(()=>{
+         //   setCurrentTime(new Date())
+        //},1000)
     },[currentTime]);
 
   function handleRegisterChange(value){
@@ -41,7 +41,7 @@ function App() {
           <header className="App-header">
               <Logo/>
               <h1 className="multicolortext">Customer Portal</h1>
-              <h4>{currentTime.toLocaleTimeString()}</h4>
+             {/* <h4>{currentTime.toLocaleTimeString()}</h4>*/}
           </header>
                {/*{
                    (registrationState.isLoaded)?

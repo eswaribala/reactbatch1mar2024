@@ -1,13 +1,15 @@
-import React, {createContext} from 'react';
+import React, {createContext, useContext, useState} from 'react';
 import PropTypes from 'prop-types';
 import './dashboardmenu.css';
 import Logo from "../Logo/Logo";
 import {Menubar} from "primereact/menubar";
 import {useNavigate} from "react-router-dom";
+import {CustomerContext} from "../dashboard/dashboard";
+
 const Dashboardmenu = ({name}) => {
     const navigate=useNavigate()
+    const firstName= useContext(CustomerContext);
 
-    const UserContext = createContext();
 
     const items=[{
         label: 'Home',
@@ -29,7 +31,7 @@ const Dashboardmenu = ({name}) => {
             command: () => {
                 //  event.preventDefault()
                 // window.location.href = "/customers"
-                navigate("/customers")
+                navigate("/customers",{state:{name:firstName}})
             }
         },
         {
@@ -59,14 +61,19 @@ const Dashboardmenu = ({name}) => {
     ]
     return(
     <div className="dashboardmenu">
+
+
         <header className="header">
             <Logo/>
+
             <Menubar key={items.label} model={items}></Menubar>
+
             <div className="welcome">
-                <h4>Hi&nbsp;&nbsp;{name}</h4>
+                <h4>Hi&nbsp;&nbsp;{name}{firstName}</h4>
                 &nbsp;&nbsp;<span className="pi pi-user"></span>
             </div>
         </header>
+
     </div>
 )};
 
