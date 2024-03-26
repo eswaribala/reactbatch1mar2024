@@ -6,9 +6,9 @@ import {Menubar} from "primereact/menubar";
 import {useNavigate} from "react-router-dom";
 import {CustomerContext} from "../dashboard/dashboard";
 
-const Dashboardmenu = ({name}) => {
+const Dashboardmenu = () => {
     const navigate=useNavigate()
-    const firstName= useContext(CustomerContext);
+   // const firstName= useContext(CustomerContext);
 
 
     const items=[{
@@ -31,12 +31,16 @@ const Dashboardmenu = ({name}) => {
             command: () => {
                 //  event.preventDefault()
                 // window.location.href = "/customers"
-                navigate("/customers",{state:{name:firstName}})
+                // navigate("/customers",{state:{name:firstName}})
+                navigate("/customers")
             }
         },
         {
             label: 'Receipts',
-            icon: 'pi pi-book'
+            icon: 'pi pi-book',
+            command:()=>{
+                navigate("/receipts")
+            }
         },
         {
             label: 'More',
@@ -69,7 +73,7 @@ const Dashboardmenu = ({name}) => {
             <Menubar key={items.label} model={items}></Menubar>
 
             <div className="welcome">
-                <h4>Hi&nbsp;&nbsp;{name}{firstName}</h4>
+                <h4>Hi&nbsp;&nbsp;{sessionStorage.getItem("firstName")}</h4>
                 &nbsp;&nbsp;<span className="pi pi-user"></span>
             </div>
         </header>

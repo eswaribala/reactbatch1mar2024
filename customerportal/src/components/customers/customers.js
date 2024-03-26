@@ -8,13 +8,13 @@ import Dashboardmenu from "../dashboardmenu/dashboardmenu";
 
 
 const Customers = () => {
- const name=sessionStorage.getItem("firstName");
-    const location = useLocation();
+// const name=sessionStorage.getItem("firstName");
+   // const location = useLocation();
 
     return (
         <div className="customers">
 
-            <Dashboardmenu name={location.state.name}></Dashboardmenu>
+            <Dashboardmenu />
         </div>
     )
 };

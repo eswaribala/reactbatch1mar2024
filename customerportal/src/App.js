@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/dashboard/dashboard";
 import {useSelector} from "react-redux";
 import Customers from "./components/customers/customers";
+import Receipts from "./components/receipts/receipts";
 function App() {
 //react hook -- state initialization
   const[currentTime,setCurrentTime]=useState(new Date())
@@ -67,9 +68,8 @@ function App() {
          <section>
           <Routes>
               <Route path="/dashboard" element={<Dashboard/>}></Route>
-
               <Route path="/customers" element={<Customers/>}></Route>
-
+              <Route path="/receipts" element={<Receipts/>}></Route>
        {/*       <Route path="/" element={<App/>}></Route>*/}
           </Routes>
          </section>
