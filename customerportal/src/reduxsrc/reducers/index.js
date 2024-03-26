@@ -1,14 +1,10 @@
 import {combineReducers} from 'redux'
 import userReducer from "./registrationreducerv1"
-import {contentSlice} from "./fetchregistrationreducer";
+import paymentReducer from "./duepaymentreducer";
 
 
 
-const rootReducer = combineReducers({
-    reducer: {
-        slicer: userReducer,
-        content: contentSlice
-    },
+export default combineReducers({
+    slicer:userReducer,
+    dueSlicer:paymentReducer
 })
-
-export default rootReducer

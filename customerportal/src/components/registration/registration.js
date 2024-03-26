@@ -60,8 +60,8 @@ const Registration = () => {
     const dispatch = useDispatch();
     //const registrationState= useSelector((state)=>state.registrationReducer)
 
-    const registrationState = useSelector(state => state.slicer);
-    const contents = useSelector((state) => state.content.contents)
+    const user = useSelector(state => state.topSlicer.slicer.user);
+    const isLoaded = useSelector(state => state.topSlicer.slicer.isLoaded);
 
      //alert(isLoaded)
    // const {isLoaded }= useSelector((state)=>state.slicer.isLoaded)
@@ -104,10 +104,10 @@ const Registration = () => {
         <div className="Registration">
             {
 
-                (registrationState.isLoaded) ?
+                (isLoaded) ?
                     <>
 
-                        <p>{registrationState.user.name.firstName}</p>
+                        <p>{user.name.firstName}</p>
                     </> :
 
                     <>
@@ -115,18 +115,7 @@ const Registration = () => {
                     </>
             }
 
-            <div>
 
-                {
-
-                    contents.map((content) => {
-                        alert(JSON.stringify(contents[0]).content)
-                    return(
-                    <div key={content.id}>
-                     <h4>{content.customerId}</h4>
-                    </div>
-                )})}
-            </div>
             <img src={RegisterLogoPath} className="Image"/>
             <form onSubmit={formik.handleSubmit} autocomplete="off">
                 <TextField id="firstName"
