@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MkPOB+MLlQReUDXtM8cmzd/TgWN17+J6wFPAglwbon4eU5DYelZZa8lbMp1Rp3SYazCka/+8oikc8urVHQkzRA==",
+  "dgSpecHash": "h4g9rSe7d7QGzbQcAMYj/xEgBfVIiSGsxva+V2v+VUd/XqSWcouic6a8KAj3UCDtwzG6EPw0sqWxxYfoZLYZ5w==",
   "success": true,
   "projectFilePath": "F:\\Local disk\\NovacMSTrainingBatch1\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj",
   "expectedPackageFiles": [
@@ -88,7 +88,8 @@
     "C:\\Users\\Dell\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\Dell\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\Dell\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\vaultsharp\\1.13.0.1\\vaultsharp.1.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
