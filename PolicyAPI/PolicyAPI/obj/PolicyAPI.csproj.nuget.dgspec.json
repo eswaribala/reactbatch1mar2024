@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Local disk\\NovacMSTrainingBatch2\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj": {}
+    "F:\\Local disk\\NovacMSTrainingBatch1\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj": {}
   },
   "projects": {
-    "F:\\Local disk\\NovacMSTrainingBatch2\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj": {
+    "F:\\Local disk\\NovacMSTrainingBatch1\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Local disk\\NovacMSTrainingBatch2\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj",
+        "projectUniqueName": "F:\\Local disk\\NovacMSTrainingBatch1\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj",
         "projectName": "PolicyAPI",
-        "projectPath": "F:\\Local disk\\NovacMSTrainingBatch2\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj",
+        "projectPath": "F:\\Local disk\\NovacMSTrainingBatch1\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "F:\\Local disk\\NovacMSTrainingBatch2\\PolicyAPI\\PolicyAPI\\obj\\",
+        "outputPath": "F:\\Local disk\\NovacMSTrainingBatch1\\PolicyAPI\\PolicyAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

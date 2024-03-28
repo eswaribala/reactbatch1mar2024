@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4hnyZEKU+1jgqlenrCzCXpd93Nlegjq2lfluttQbh1I7mRzwFCXPOCpxXkO3r15jaF2D0IKD/7H5x09YTDGEUw==",
+  "dgSpecHash": "MkPOB+MLlQReUDXtM8cmzd/TgWN17+J6wFPAglwbon4eU5DYelZZa8lbMp1Rp3SYazCka/+8oikc8urVHQkzRA==",
   "success": true,
-  "projectFilePath": "F:\\Local disk\\NovacMSTrainingBatch2\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj",
+  "projectFilePath": "F:\\Local disk\\NovacMSTrainingBatch1\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
