@@ -13,16 +13,14 @@ namespace PolicyAPI.Configurations
         }
 
 
-        public async Task<Dictionary<string,object>>  GetSecrets()
+        public async Task<Dictionary<string,object>>  GetSecrets(string Url, string RootKey)
         {
-            var url = _configuration["Vault_Url"];
-            var rootToken = _configuration["Root_Token"];
 
             TokenAuthMethodInfo tokenAuthMethodInfo=
-                new TokenAuthMethodInfo(rootToken);
+                new TokenAuthMethodInfo(RootKey);
 
            VaultClientSettings  vaultClientSettings
-                =new VaultClientSettings(url, tokenAuthMethodInfo);
+                =new VaultClientSettings(Url, tokenAuthMethodInfo);
             IVaultClient vaultClient = new VaultClient(vaultClientSettings);
             Console.WriteLine(vaultClient.V1.Secrets);
 

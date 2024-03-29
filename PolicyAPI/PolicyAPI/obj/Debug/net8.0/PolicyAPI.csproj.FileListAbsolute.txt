@@ -138,3 +138,13 @@ F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\obj\Debug\net8.0\refint\
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\obj\Debug\net8.0\PolicyAPI.pdb
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\obj\Debug\net8.0\PolicyAPI.genruntimeconfig.cache
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\obj\Debug\net8.0\ref\PolicyAPI.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Steeltoe.Common.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Steeltoe.Common.Abstractions.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Steeltoe.Common.Http.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Steeltoe.Discovery.Abstractions.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Steeltoe.Extensions.Configuration.Abstractions.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Steeltoe.Extensions.Configuration.CloudFoundryBase.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Steeltoe.Extensions.Configuration.ConfigServerBase.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Steeltoe.Extensions.Configuration.ConfigServerCore.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Steeltoe.Extensions.Configuration.PlaceholderBase.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
