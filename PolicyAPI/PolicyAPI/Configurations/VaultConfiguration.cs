@@ -1,5 +1,6 @@
 ﻿using VaultSharp;
 using VaultSharp.V1.AuthMethods.Token;
+using VaultSharp.V1.Commons;
 
 namespace PolicyAPI.Configurations
 {
@@ -24,8 +25,16 @@ namespace PolicyAPI.Configurations
             IVaultClient vaultClient = new VaultClient(vaultClientSettings);
             Console.WriteLine(vaultClient.V1.Secrets);
 
-            var result = await vaultClient.V1.Secrets.KeyValue.V1.ReadSecretAsync("sqlserver2019",
+             var result = await vaultClient.V1.Secrets.KeyValue.V1.ReadSecretAsync("sqlserver2019",
                 "secret", null);
+
+            // var result = await vaultClient.V1.Secrets.KeyValue.V2.ReadSecretAsync(
+            // "static", null, "sqlserver2019" + "secrets");
+
+           // Secret<SecretData> secret = vaultClient.V1.Secrets.KeyValue.V2.ReadSecretAsync(
+          //      path: "sqlserver2019",
+         //       mountPoint: "secret"
+         //   ).Result;
             return result.Data;
 
 
