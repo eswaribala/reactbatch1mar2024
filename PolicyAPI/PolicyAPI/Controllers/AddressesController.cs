@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using PolicyAPI.Contexts;
 using PolicyAPI.Models;
+using PolicyAPI.Repositories;
 
 namespace PolicyAPI.Controllers
 {
@@ -19,25 +21,25 @@ namespace PolicyAPI.Controllers
     [ApiController]
     public class AddressesController : ControllerBase
     {
-        private readonly PolicyContext _context;
+        private readonly IAddressRepo _addressRepo;
 
-        public AddressesController(PolicyContext context)
+        public AddressesController(IAddressRepo addressRepo)
         {
-            _context = context;
+            _addressRepo = addressRepo;
         }
 
         // GET: api/Addresses
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Address>>> GetAddresses()
+        public async Task<IEnumerable<Address>> GetAddresses()
         {
-            return await _context.Addresses.ToListAsync();
+            return await _addressRepo.GetAllAddresses();
         }
 
         // GET: api/Addresses/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Address>> GetAddress(long id)
+        [HttpGet("{doorNo}/{streetName}")]
+        public async Task<ActionResult<Address>> GetAddress(string doorNo,string streetName)
         {
-            var address = await _context.Addresses.FindAsync(id);
+            var address = await _addressRepo.GetAddress(doorNo,streetName);
 
             if (address == null)
             {
@@ -49,65 +51,40 @@ namespace PolicyAPI.Controllers
 
         // PUT: api/Addresses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAddress(long id, Address address)
+        [HttpPut("{oldDoorNo}/{oldStreetName}")]
+        public async Task<IActionResult> PutAddress([FromBody] Address address,
+        string oldDoorNo, string oldStreetName)
         {
-            if (id != address.AddressId)
-            {
-                return BadRequest();
-            }
 
-            _context.Entry(address).State = EntityState.Modified;
+            var result = await _addressRepo.UpdateAddress(address,oldDoorNo,oldStreetName);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AddressExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return NoContent();
+            return CreatedAtAction("GetAddress", new { id = result.AddressId }, result);
+
         }
 
         // POST: api/Addresses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Address>> PostAddress(Address address)
+        [HttpPost("adharCardNo")]
+        public async Task<ActionResult<Address>> PostAddress([FromBody] Address address,string adharCardNo)
         {
-            _context.Addresses.Add(address);
-            await _context.SaveChangesAsync();
+            var result = await _addressRepo.AddAddress(address,adharCardNo);
 
-            return CreatedAtAction("GetAddress", new { id = address.AddressId }, address);
+
+            return CreatedAtAction("GetAddress", new { id = result.AddressId }, result);
         }
 
         // DELETE: api/Addresses/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAddress(long id)
+        [HttpDelete("{doorNo}/{streetName}")]
+        public async Task<IActionResult> DeleteAddress(string doorNo,string streetName)
         {
-            var address = await _context.Addresses.FindAsync(id);
-            if (address == null)
+            if(await _addressRepo.DeleteAddress(doorNo, streetName))
             {
-                return NotFound();
-            }
-
-            _context.Addresses.Remove(address);
-            await _context.SaveChangesAsync();
+                return new OkResult();
+            }else
 
             return NoContent();
         }
 
-        private bool AddressExists(long id)
-        {
-            return _context.Addresses.Any(e => e.AddressId == id);
-        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PolicyAPI.Models
@@ -21,7 +22,7 @@ namespace PolicyAPI.Models
         [Column("Email")]
         [RegularExpression("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",
             ErrorMessage = "Email Format Not matching")]
-
+        [DefaultValue("")]
         public string Email { get; set; } =string.Empty;
         [Column("Phone")]
         [RegularExpression("^([+]\\d{2}[ ])?\\d{10}$",

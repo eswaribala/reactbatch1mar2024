@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PolicyAPI.Contexts;
 using PolicyAPI.Models;
+using PolicyAPI.Repositories;
 
 namespace PolicyAPI.Controllers
 {
@@ -19,25 +20,25 @@ namespace PolicyAPI.Controllers
     [ApiController]
     public class PoliciesController : ControllerBase
     {
-        private readonly PolicyContext _context;
+        private readonly IPolicyRepo _policyRepo;
 
-        public PoliciesController(PolicyContext context)
+        public PoliciesController(IPolicyRepo policyRepo)
         {
-            _context = context;
+           _policyRepo = policyRepo;    
         }
 
         // GET: api/Policies
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Policy>>> GetPolicies()
+        public async Task<IEnumerable<Policy>> GetPolicies()
         {
-            return await _context.Policies.ToListAsync();
+            return await _policyRepo.GetAllPolicies();
         }
 
         // GET: api/Policies/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Policy>> GetPolicy(long id)
+        [HttpGet("{policyNo}")]
+        public async Task<ActionResult<Policy>> GetPolicy(long policyNo)
         {
-            var policy = await _context.Policies.FindAsync(id);
+            var policy = await _policyRepo.GetPolicy(policyNo); 
 
             if (policy == null)
             {
@@ -47,67 +48,30 @@ namespace PolicyAPI.Controllers
             return policy;
         }
 
-        // PUT: api/Policies/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPolicy(long id, Policy policy)
-        {
-            if (id != policy.PolicyNo)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(policy).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PolicyExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
+       
 
         // POST: api/Policies
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Policy>> PostPolicy(Policy policy)
+        [HttpPost("{adharCardNo}/{registrationNo}")]
+        public async Task<ActionResult<Policy>> PostPolicy([FromBody] Policy policy, 
+            string adharCardNo, string registrationNo)
         {
-            _context.Policies.Add(policy);
-            await _context.SaveChangesAsync();
+           var result= await _policyRepo.AddPolicy(policy, adharCardNo,registrationNo);
 
-            return CreatedAtAction("GetPolicy", new { id = policy.PolicyNo }, policy);
+            return CreatedAtAction("GetPolicy", new { id = result.PolicyNo }, result);
         }
 
         // DELETE: api/Policies/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePolicy(long id)
+        [HttpDelete("{policyNo}")]
+        public async Task<IActionResult> DeletePolicy(long policyNo)
         {
-            var policy = await _context.Policies.FindAsync(id);
-            if (policy == null)
+            if (await _policyRepo.DeletePolicy(policyNo))
             {
-                return NotFound();
-            }
+                return new OkResult();
+            }else
 
-            _context.Policies.Remove(policy);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+             return NoContent();
         }
 
-        private bool PolicyExists(long id)
-        {
-            return _context.Policies.Any(e => e.PolicyNo == id);
-        }
     }
 }
