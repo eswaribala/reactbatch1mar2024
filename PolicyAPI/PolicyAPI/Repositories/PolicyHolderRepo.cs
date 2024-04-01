@@ -25,7 +25,7 @@ namespace PolicyAPI.Repositories
         public async Task<bool> DeletePolicyHolder(string adharCardNo)
         {
             bool Status = false;
-            var result = await IsPolicyHolderExists(adharCardNo);
+            var result = await IsPolicyHolderExists(adharCardNo.Trim());
             if (result != null)
             {
                 this._dbContext.PolicyHolders.Remove(result);

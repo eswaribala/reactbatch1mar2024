@@ -73,9 +73,9 @@ namespace PolicyAPI.Controllers
 
         // DELETE: api/PolicyHolders/5
         [HttpDelete("{adharCardNo}")]
-        public async Task<IActionResult> DeletePolicyHolder(string adharcardNo)
+        public async Task<IActionResult> DeletePolicyHolder(string adharCardNo)
         {
-           if(await _policyHolderRepo.DeletePolicyHolder(adharcardNo))
+           if(await _policyHolderRepo.DeletePolicyHolder(adharCardNo))
             {
                 return new OkResult();
             }
