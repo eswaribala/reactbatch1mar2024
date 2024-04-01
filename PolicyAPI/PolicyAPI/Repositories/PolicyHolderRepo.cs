@@ -25,8 +25,8 @@ namespace PolicyAPI.Repositories
         public async Task<bool> DeletePolicyHolder(string adharCardNo)
         {
             bool Status = false;
-           var result =await IsPolicyHolderExists(adharCardNo);
-            if(result != null)
+            var result = await IsPolicyHolderExists(adharCardNo);
+            if (result != null)
             {
                 this._dbContext.PolicyHolders.Remove(result);
                 await this._dbContext.SaveChangesAsync();
@@ -41,7 +41,7 @@ namespace PolicyAPI.Repositories
         private async Task<PolicyHolder> IsPolicyHolderExists(string adharCardNo)
         {
 
-           return  await this._dbContext.PolicyHolders.FirstOrDefaultAsync(p => p.AdharCardNo == adharCardNo);
+            return await this._dbContext.PolicyHolders.FirstOrDefaultAsync(p => p.AdharCardNo == adharCardNo);
 
         }
 
@@ -61,7 +61,7 @@ namespace PolicyAPI.Repositories
             if (result != null)
             {
                 result.Email = newEmail;
-                result.Phone= newMobilrNo;
+                result.Phone = newMobilrNo;
                 await this._dbContext.SaveChangesAsync();
                 return result;
             }
@@ -70,5 +70,6 @@ namespace PolicyAPI.Repositories
                 return null;
             }
 
+        }
     }
 }
