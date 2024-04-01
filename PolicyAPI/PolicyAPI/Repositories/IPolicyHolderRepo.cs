@@ -8,7 +8,7 @@ namespace PolicyAPI.Repositories
 
         Task<PolicyHolder> UpdatePolicyHolder(string adharCardNo,
             string newEmail, long newMobileNo);
-        Task<PolicyHolder> DeletePolicyHolder(string adharCardNo);
+        Task<bool> DeletePolicyHolder(string adharCardNo);
         Task<PolicyHolder> GetPolicyHolder(string adharCardNo);
         Task<IEnumerable<PolicyHolder>> GetAllPolicyHolders();
 

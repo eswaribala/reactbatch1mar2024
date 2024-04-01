@@ -1,4 +1,5 @@
-﻿using PolicyAPI.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using PolicyAPI.Contexts;
 using PolicyAPI.Models;
 
 namespace PolicyAPI.Repositories
@@ -13,29 +14,61 @@ namespace PolicyAPI.Repositories
         }
 
 
-        public Task<PolicyHolder> AddPolicyHolder(PolicyHolder policyHolder)
+        public async Task<PolicyHolder> AddPolicyHolder(PolicyHolder policyHolder)
         {
-            throw new NotImplementedException();
+            var result = await this._dbContext.PolicyHolders.AddAsync(policyHolder);
+            await this._dbContext.SaveChangesAsync();
+            return result.Entity;
+
         }
 
-        public Task<PolicyHolder> DeletePolicyHolder(string adharCardNo)
+        public async Task<bool> DeletePolicyHolder(string adharCardNo)
         {
-            throw new NotImplementedException();
+            bool Status = false;
+           var result =await IsPolicyHolderExists(adharCardNo);
+            if(result != null)
+            {
+                this._dbContext.PolicyHolders.Remove(result);
+                await this._dbContext.SaveChangesAsync();
+                Status = true;
+            }
+
+            return Status;
+
         }
 
-        public Task<IEnumerable<PolicyHolder>> GetAllPolicyHolders()
+
+        private async Task<PolicyHolder> IsPolicyHolderExists(string adharCardNo)
         {
-            throw new NotImplementedException();
+
+           return  await this._dbContext.PolicyHolders.FirstOrDefaultAsync(p => p.AdharCardNo == adharCardNo);
+
         }
 
-        public Task<PolicyHolder> GetPolicyHolder(string adharCardNo)
+        public async Task<IEnumerable<PolicyHolder>> GetAllPolicyHolders()
         {
-            throw new NotImplementedException();
+            return await this._dbContext.PolicyHolders.ToListAsync();
         }
 
-        public Task<PolicyHolder> UpdatePolicyHolder(string adharCardNo, string newEmail, long newMobilrNo)
+        public async Task<PolicyHolder> GetPolicyHolder(string adharCardNo)
         {
-            throw new NotImplementedException();
+            return await IsPolicyHolderExists(adharCardNo);
         }
+
+        public async Task<PolicyHolder> UpdatePolicyHolder(string adharCardNo, string newEmail, long newMobilrNo)
+        {
+            var result = await IsPolicyHolderExists(adharCardNo);
+            if (result != null)
+            {
+                result.Email = newEmail;
+                result.Phone= newMobilrNo;
+                await this._dbContext.SaveChangesAsync();
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+
     }
 }

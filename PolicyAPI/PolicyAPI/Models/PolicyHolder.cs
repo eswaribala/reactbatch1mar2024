@@ -12,7 +12,7 @@ namespace PolicyAPI.Models
         public string AdharCardNo { get; set; } =string.Empty;
         public FullName? Name { get; set; }
         [Column("Gender")]
-       
+        [EnumDataType(typeof(Gender))]
         public Gender? Gender { get; set; }
         [Column("DOB")]
         [DataType(DataType.Date)]

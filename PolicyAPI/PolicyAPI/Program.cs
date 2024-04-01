@@ -4,6 +4,8 @@ using PolicyAPI.Configurations;
 using PolicyAPI.Contexts;
 using PolicyAPI.Repositories;
 using Steeltoe.Extensions.Configuration.ConfigServer;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +21,13 @@ var Url = configuration["awsvaulturl"];
 var RootKey = configuration["rootkey"];
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+    });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 IDictionary<string,object> result = new VaultConfiguration(configuration).GetSecrets(Url,RootKey).Result;

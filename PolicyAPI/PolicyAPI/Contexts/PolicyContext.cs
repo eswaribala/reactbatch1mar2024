@@ -12,9 +12,9 @@ namespace PolicyAPI.Contexts
         }
 
         public DbSet<PolicyHolder> PolicyHolders { get; set; }
-
-        public DbSet<Policy> Policies { get; set; } 
-
+        public DbSet<Policy> Policies { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
     }
 }
