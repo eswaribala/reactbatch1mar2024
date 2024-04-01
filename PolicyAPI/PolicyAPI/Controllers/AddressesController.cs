@@ -59,7 +59,7 @@ namespace PolicyAPI.Controllers
             var result = await _addressRepo.UpdateAddress(address,oldDoorNo,oldStreetName);
 
 
-            return CreatedAtAction("GetAddress", new { id = result.AddressId }, result);
+            return CreatedAtAction("GetAddresses", new { id = result.AddressId }, result);
 
         }
 
@@ -71,7 +71,7 @@ namespace PolicyAPI.Controllers
             var result = await _addressRepo.AddAddress(address,adharCardNo);
 
 
-            return CreatedAtAction("GetAddress", new { id = result.AddressId }, result);
+            return CreatedAtAction("GetAddresses", new { id = result.AddressId }, result);
         }
 
         // DELETE: api/Addresses/5

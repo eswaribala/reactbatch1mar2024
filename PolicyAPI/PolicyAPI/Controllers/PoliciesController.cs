@@ -58,7 +58,7 @@ namespace PolicyAPI.Controllers
         {
            var result= await _policyRepo.AddPolicy(policy, adharCardNo,registrationNo);
 
-            return CreatedAtAction("GetPolicy", new { id = result.PolicyNo }, result);
+            return CreatedAtAction("GetPolicies", new { id = result.PolicyNo }, result);
         }
 
         // DELETE: api/Policies/5

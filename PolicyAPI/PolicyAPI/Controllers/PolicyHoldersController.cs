@@ -58,7 +58,7 @@ namespace PolicyAPI.Controllers
             var policyHolder=await _policyHolderRepo.UpdatePolicyHolder(adharCardNo, email, mobileNo);
 
 
-            return CreatedAtAction("GetPolicyHolder", new { id = policyHolder.AdharCardNo }, policyHolder);
+            return CreatedAtAction("GetPolicyHolders", new { id = policyHolder.AdharCardNo }, policyHolder);
         }
 
         // POST: api/PolicyHolders
@@ -68,7 +68,7 @@ namespace PolicyAPI.Controllers
         {
             var result = await _policyHolderRepo.AddPolicyHolder(policyHolder);
 
-            return CreatedAtAction("GetPolicyHolder", new { id = policyHolder.AdharCardNo }, policyHolder);
+            return CreatedAtAction("GetPolicyHolders", new { id = policyHolder.AdharCardNo }, policyHolder);
         }
 
         // DELETE: api/PolicyHolders/5

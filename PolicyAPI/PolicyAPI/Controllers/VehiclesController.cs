@@ -58,7 +58,7 @@ namespace PolicyAPI.Controllers
         {
             var result = await _vehicleRepo.AddVehicle(vehicle);
 
-            return CreatedAtAction("GetVehicle", new { id = result.RegistrationNo }, result);
+            return CreatedAtAction("GetVehicles", new { id = result.RegistrationNo }, result);
         }
 
         // DELETE: api/Vehicles/5
