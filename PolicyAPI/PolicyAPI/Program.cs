@@ -25,7 +25,7 @@ ConfigurationManager configuration = builder.Configuration;
 var Url = configuration["awsvaulturl"];
 var RootKey = configuration["rootkey"];
 
-
+builder.Services.AddControllers();
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {

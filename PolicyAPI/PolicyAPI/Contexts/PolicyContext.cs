@@ -16,5 +16,14 @@ namespace PolicyAPI.Contexts
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Address> Addresses { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<PolicyHolder>()
+                .Property(p => p.Gender)
+                .HasConversion<string>()
+                .HasMaxLength(20);
+        }
     }
 }
