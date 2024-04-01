@@ -25,8 +25,13 @@ namespace PolicyAPI.Models
 
         [ForeignKey("PolicyHolder")]
         [Column("AdharCard_No_FK")]
-        public string? AdharCardNo { get; set; }
-        public PolicyHolder? PolicyHolder { get; set; }
+        public string AdharCardNo { get; set; }
+        public PolicyHolder PolicyHolder { get; set; }
+
+        [ForeignKey("Vehicle")]
+        [Column("Registration_No_FK")]
+        public string RegistrationNo { get; set; }
+        public Vehicle Vehicle{ get; set; }
 
     }
 }
