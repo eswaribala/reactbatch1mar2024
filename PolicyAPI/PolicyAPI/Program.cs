@@ -15,14 +15,15 @@ builder.Configuration.AddConfigServer();
 ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 
-var Url = configuration["url"];
+var Url = configuration["awsvaulturl"];
 var RootKey = configuration["rootkey"];
 
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-var result = new VaultConfiguration(configuration).GetSecrets(Url,RootKey).Result;
+IDictionary<string,object> result = new VaultConfiguration(configuration).GetSecrets(Url,RootKey).Result;
+Console.WriteLine(result);
 ////connection string
 SqlConnectionStringBuilder providerCs = new SqlConnectionStringBuilder();
 providerCs.UserID = result["username"].ToString();
@@ -30,7 +31,7 @@ providerCs.Password = result["password"].ToString();
 providerCs.InitialCatalog = configuration["dbName"];
 providerCs.DataSource = configuration["trainerservername"];
 providerCs.MultipleActiveResultSets = true;
-providerCs.TrustServerCertificate = false;
+providerCs.TrustServerCertificate = true;
 
 builder.Services.AddDbContext<PolicyContext>(o =>
 o.UseSqlServer(providerCs.ToString()));
