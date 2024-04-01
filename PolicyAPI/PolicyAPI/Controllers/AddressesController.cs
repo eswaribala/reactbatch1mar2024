@@ -17,47 +17,47 @@ namespace PolicyAPI.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     [EnableCors]
     [ApiController]
-    public class PoliciesController : ControllerBase
+    public class AddressesController : ControllerBase
     {
         private readonly PolicyContext _context;
 
-        public PoliciesController(PolicyContext context)
+        public AddressesController(PolicyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Policies
+        // GET: api/Addresses
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Policy>>> GetPolicies()
+        public async Task<ActionResult<IEnumerable<Address>>> GetAddresses()
         {
-            return await _context.Policies.ToListAsync();
+            return await _context.Addresses.ToListAsync();
         }
 
-        // GET: api/Policies/5
+        // GET: api/Addresses/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Policy>> GetPolicy(long id)
+        public async Task<ActionResult<Address>> GetAddress(long id)
         {
-            var policy = await _context.Policies.FindAsync(id);
+            var address = await _context.Addresses.FindAsync(id);
 
-            if (policy == null)
+            if (address == null)
             {
                 return NotFound();
             }
 
-            return policy;
+            return address;
         }
 
-        // PUT: api/Policies/5
+        // PUT: api/Addresses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPolicy(long id, Policy policy)
+        public async Task<IActionResult> PutAddress(long id, Address address)
         {
-            if (id != policy.PolicyNo)
+            if (id != address.AddressId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(policy).State = EntityState.Modified;
+            _context.Entry(address).State = EntityState.Modified;
 
             try
             {
@@ -65,7 +65,7 @@ namespace PolicyAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PolicyExists(id))
+                if (!AddressExists(id))
                 {
                     return NotFound();
                 }
@@ -78,36 +78,36 @@ namespace PolicyAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Policies
+        // POST: api/Addresses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Policy>> PostPolicy(Policy policy)
+        public async Task<ActionResult<Address>> PostAddress(Address address)
         {
-            _context.Policies.Add(policy);
+            _context.Addresses.Add(address);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPolicy", new { id = policy.PolicyNo }, policy);
+            return CreatedAtAction("GetAddress", new { id = address.AddressId }, address);
         }
 
-        // DELETE: api/Policies/5
+        // DELETE: api/Addresses/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePolicy(long id)
+        public async Task<IActionResult> DeleteAddress(long id)
         {
-            var policy = await _context.Policies.FindAsync(id);
-            if (policy == null)
+            var address = await _context.Addresses.FindAsync(id);
+            if (address == null)
             {
                 return NotFound();
             }
 
-            _context.Policies.Remove(policy);
+            _context.Addresses.Remove(address);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool PolicyExists(long id)
+        private bool AddressExists(long id)
         {
-            return _context.Policies.Any(e => e.PolicyNo == id);
+            return _context.Addresses.Any(e => e.AddressId == id);
         }
     }
 }
