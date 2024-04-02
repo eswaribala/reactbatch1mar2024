@@ -13,7 +13,9 @@ namespace PolicyAPI.Queries
             Field(_ => _.EngineNo).Description("Engine No");
             Field(_ => _.ChasisNo).Description("Chassis No");
             Field(_ => _.DOR).Description("Registration Date");
-            Field(_ => _.FuelType).Description("Fuel Type");
+            Field<StringGraphType>("fuelType",
+                resolve: context =>
+                context.Source.FuelType.ToString());
             Field(_ => _.Color).Description("Color");
             Field(_ => _.Maker).Description("Maker");
 

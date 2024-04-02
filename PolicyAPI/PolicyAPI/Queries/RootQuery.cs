@@ -12,7 +12,7 @@ namespace PolicyAPI.Queries
                 Name = "vehicles",
                 resolve: context => vehicleRepo.GetAllVehicles()
 
-                ) ;
+                );
 
             Field<VehicleGQLType>(
                 Name = "vehicle",
@@ -30,16 +30,17 @@ namespace PolicyAPI.Queries
 
                 );
 
-            Field<PolicyHolderGQLType>(
-                Name = "policyholder",
-                arguments:new QueryArguments(new QueryArgument<StringGraphType> {
-                    Name = "policyholder"
-                    }),
-                resolve: context => policyHolderRepo.GetPolicyHolder(context
-                .GetArgument<string>("adharCardNo")
-                )
+            //Field<PolicyHolderGQLType>(
+            //    Name = "policyholder",
+            //    arguments: new QueryArguments(new QueryArgument<StringGraphType>
+            //    {
+            //        Name = "adharCardNo"
+            //    }),
+            //    resolve: context => policyHolderRepo.GetPolicyHolder(context
+            //    .GetArgument<string>("adharCardNo")
+            //    )
 
-                );
+            //    );
 
 
 

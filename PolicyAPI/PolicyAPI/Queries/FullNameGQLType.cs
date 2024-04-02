@@ -7,7 +7,7 @@ namespace PolicyAPI.Queries
     {
         public FullNameGQLType()
         {
-            Name = "FullName";
+            Name = "fullname";
             Field(_ => _.FirstName).Description("First Name");
             Field(_ => _.LastName).Description("Last Name");
             Field(_ => _.MiddleName).Description("Middle Name");

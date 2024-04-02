@@ -40,7 +40,6 @@
 
   <ItemGroup>
     <Folder Include="Mutations\" />
-    <Folder Include="Schema\" />
   </ItemGroup>
 
 </Project>

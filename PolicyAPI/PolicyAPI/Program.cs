@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using PolicyAPI.Schemas;
+using GraphQL.Server;
+using GraphQL.Server.Ui.Playground;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -95,6 +98,14 @@ builder.Services.AddCors(options =>
                       });
 });
 
+
+builder.Services.AddScoped<PolicySchema>();
+builder.Services.AddGraphQL()
+               .AddSystemTextJson()
+               .AddGraphTypes(typeof(PolicySchema), ServiceLifetime.Scoped);
+
+
+
 var app = builder.Build();
 var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
@@ -111,7 +122,8 @@ if (app.Environment.IsDevelopment())
         }
     });
 }
-
+app.UseGraphQL<PolicySchema>();
+app.UseGraphQLPlayground(options: new PlaygroundOptions());
 app.UseHttpsRedirection();
 app.UseCors(policyName);
 
