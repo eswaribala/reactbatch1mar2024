@@ -6,7 +6,7 @@ namespace PolicyAPI.Queries
 {
     public class RootQuery:ObjectGraphType
     {
-        public RootQuery(IVehicleRepo vehicleRepo)
+        public RootQuery(IVehicleRepo vehicleRepo,IPolicyHolderRepo policyHolderRepo)
         {
             Field<ListGraphType<VehicleGQLType>>(
                 Name = "vehicles",
@@ -22,6 +22,26 @@ namespace PolicyAPI.Queries
                 }),
                 resolve: context => vehicleRepo
                 .GetVehicle(context.GetArgument<string>("registrationNo")));
+
+
+            Field<ListGraphType<PolicyHolderGQLType>>(
+                Name = "policyholders",
+                resolve: context => policyHolderRepo.GetAllPolicyHolders()
+
+                );
+
+            Field<PolicyHolderGQLType>(
+                Name = "policyholder",
+                arguments:new QueryArguments(new QueryArgument<StringGraphType> {
+                    Name = "policyholder"
+                    }),
+                resolve: context => policyHolderRepo.GetPolicyHolder(context
+                .GetArgument<string>("adharCardNo")
+                )
+
+                );
+
+
 
 
         }
