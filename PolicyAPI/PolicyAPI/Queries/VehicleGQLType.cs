@@ -8,7 +8,7 @@ namespace PolicyAPI.Queries
 
         public VehicleGQLType()
         {
-            Name = "vehicle";
+            Name = "Vehicle";
             Field(_ => _.RegistrationNo).Description("Registration No");
             Field(_ => _.EngineNo).Description("Engine No");
             Field(_ => _.ChasisNo).Description("Chassis No");

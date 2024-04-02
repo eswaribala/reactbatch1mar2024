@@ -7,7 +7,7 @@ namespace PolicyAPI.Queries
     {
          public GenderGQlType()
         {
-            Name = "gender";
+            Name = "Gender";
         }
     }
 }

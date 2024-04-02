@@ -8,7 +8,7 @@ namespace PolicyAPI.Queries
 
         public PolicyHolderGQLType()
         {
-            Name = "policyholder";
+            Name = "PolicyHolder";
             Field(_ => _.AdharCardNo).Description("Adhard Card No");
             Field(_ => _.Name.FirstName).Description("First Name");
             Field(_ => _.Name.LastName).Description("Last Name");

@@ -8,7 +8,7 @@ namespace PolicyAPI.Queries
 
         public FuelGLType()
         {
-            Name = "fueltype";
+            Name = "FuelType";
         }
     }
 }

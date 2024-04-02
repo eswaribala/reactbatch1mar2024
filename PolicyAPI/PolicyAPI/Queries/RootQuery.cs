@@ -30,18 +30,17 @@ namespace PolicyAPI.Queries
 
                 );
 
-            //Field<PolicyHolderGQLType>(
-            //    Name = "policyholder",
-            //    arguments: new QueryArguments(new QueryArgument<StringGraphType>
-            //    {
-            //        Name = "adharCardNo"
-            //    }),
-            //    resolve: context => policyHolderRepo.GetPolicyHolder(context
-            //    .GetArgument<string>("adharCardNo")
-            //    )
+            Field<PolicyHolderGQLType>(
+                Name = "policyholder",
+                arguments: new QueryArguments(new QueryArgument<StringGraphType>
+                {
+                    Name = "adharCardNo"
+                }),
+                resolve: context => policyHolderRepo.GetPolicyHolder(context
+                .GetArgument<string>("adharCardNo")
+                )
 
-            //    );
-
+                );
 
 
 
