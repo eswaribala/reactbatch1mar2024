@@ -15,13 +15,13 @@ namespace PolicyAPI.Queries
                 ) ;
 
             Field<VehicleGQLType>(
-                Name="vehicle",
-                arguments:new QueryArguments(new QueryArgument<StringGraphType>
+                Name = "vehicle",
+                arguments: new QueryArguments(new QueryArgument<StringGraphType>
                 {
-                    Name="registrationNo"
+                    Name = "registrationNo"
                 }),
-                resolve:context=>vehicleRepo
-                .GetVehicle(context.GetArgument<string>("registrationNo"))
+                resolve: context => vehicleRepo
+                .GetVehicle(context.GetArgument<string>("registrationNo")));
 
 
         }
