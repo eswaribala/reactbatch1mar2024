@@ -7,9 +7,9 @@ namespace PolicyAPI.Repositories
         Task<Address> AddAddress(Address Address, string adharCardNo);
 
         Task<Address> UpdateAddress(Address address,
-            string oldDoorNo, string oldStreetName);
-        Task<bool> DeleteAddress(string doorNo, string streetName);
-        Task<Address> GetAddress(string doorNo, string streetName);
+            string oldDoorNo, string oldStreetName,string adharCardNo);
+        Task<bool> DeleteAddress(string doorNo, string streetName, string adharCardNo);
+        Task<Address> GetAddress(string doorNo, string streetName, string adharCardNo);
         Task<IEnumerable<Address>> GetAllAddresses();
 
     }

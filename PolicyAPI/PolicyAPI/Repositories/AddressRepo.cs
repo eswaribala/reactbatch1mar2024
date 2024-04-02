@@ -50,18 +50,18 @@ namespace AddressAPI.Repositories
 
 
 
-        private async Task<Address> IsAddressExists(string doorNo, string streetName)
+        private async Task<Address> IsAddressExists(string doorNo, string streetName, string adharCardNo)
         {
 
             return await this._dbContext.Addresses
-                .FirstOrDefaultAsync(a => a.DoorNo == doorNo && a.StreetName==streetName);
+                .FirstOrDefaultAsync(a => a.DoorNo == doorNo && a.StreetName==streetName && a.AdharCardNo==adharCardNo);
 
         }
 
-        public async Task<bool> DeleteAddress(string doorNo, string streetName)
+        public async Task<bool> DeleteAddress(string doorNo, string streetName, string adharCardNo)
         {
             bool Status = false;
-            var result = await IsAddressExists(doorNo,streetName);
+            var result = await IsAddressExists(doorNo,streetName,adharCardNo);
             if (result != null)
             {
                 this._dbContext.Addresses.Remove(result);
@@ -81,15 +81,15 @@ namespace AddressAPI.Repositories
             return await this._dbContext.Addresses.ToListAsync();
         }
 
-        public async Task<Address> GetAddress(string doorNo, string streetName)
+        public async Task<Address> GetAddress(string doorNo, string streetName, string adharCardNo)
         {
-            return await IsAddressExists(doorNo, streetName);
+            return await IsAddressExists(doorNo, streetName, adharCardNo);
         }
 
 
-        public async Task<Address> UpdateAddress(Address address, string oldDoorNo, string oldStreetName)
+        public async Task<Address> UpdateAddress(Address address, string oldDoorNo, string oldStreetName, string adharCardNo)
         {
-            var result = await IsAddressExists(oldDoorNo,oldStreetName);
+            var result = await IsAddressExists(oldDoorNo,oldStreetName,adharCardNo);
             if (result != null)
             {
                 result.DoorNo=address.DoorNo;

@@ -36,10 +36,10 @@ namespace PolicyAPI.Controllers
         }
 
         // GET: api/Addresses/5
-        [HttpGet("{doorNo}/{streetName}")]
-        public async Task<ActionResult<Address>> GetAddress(string doorNo,string streetName)
+        [HttpGet("{doorNo}/{streetName}/{adharCardNo}")]
+        public async Task<ActionResult<Address>> GetAddress(string doorNo,string streetName, string adharCardNo)
         {
-            var address = await _addressRepo.GetAddress(doorNo,streetName);
+            var address = await _addressRepo.GetAddress(doorNo,streetName, adharCardNo);
 
             if (address == null)
             {
@@ -51,12 +51,12 @@ namespace PolicyAPI.Controllers
 
         // PUT: api/Addresses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{oldDoorNo}/{oldStreetName}")]
+        [HttpPut("{oldDoorNo}/{oldStreetName}/{adharCardNo}")]
         public async Task<IActionResult> PutAddress([FromBody] Address address,
-        string oldDoorNo, string oldStreetName)
+        string oldDoorNo, string oldStreetName, string adharCardNo)
         {
 
-            var result = await _addressRepo.UpdateAddress(address,oldDoorNo,oldStreetName);
+            var result = await _addressRepo.UpdateAddress(address,oldDoorNo,oldStreetName,adharCardNo);
 
 
             return CreatedAtAction("GetAddresses", new { id = result.AddressId }, result);
@@ -75,10 +75,10 @@ namespace PolicyAPI.Controllers
         }
 
         // DELETE: api/Addresses/5
-        [HttpDelete("{doorNo}/{streetName}")]
-        public async Task<IActionResult> DeleteAddress(string doorNo,string streetName)
+        [HttpDelete("{doorNo}/{streetName}/{adharCardNo}")]
+        public async Task<IActionResult> DeleteAddress(string doorNo,string streetName, string adharCardNo)
         {
-            if(await _addressRepo.DeleteAddress(doorNo, streetName))
+            if(await _addressRepo.DeleteAddress(doorNo, streetName, adharCardNo))
             {
                 return new OkResult();
             }else
