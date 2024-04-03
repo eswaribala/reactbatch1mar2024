@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChitAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58d4ab1c45bf190be0e2b1e7b3fe48bbc80c3a0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8c31013df4ba756cbe4fe4a30bf05f2b79f3d24")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChitAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChitAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
