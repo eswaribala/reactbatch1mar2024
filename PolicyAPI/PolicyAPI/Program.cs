@@ -18,10 +18,10 @@ using GraphQL.Server.Ui.Playground;
 
 var builder = WebApplication.CreateBuilder(args);
 //step to add config server
-builder.Configuration.AddConfigServer();
+//builder.Configuration.AddConfigServer();
 ConfigurationManager configuration = builder.Configuration;
-var Url = configuration["awsvaulturl"].ToString();
-var RootKey = configuration["rootkey"].ToString();
+//var Url = configuration["awsvaulturl"].ToString();
+//var RootKey = configuration["rootkey"].ToString();
 
 // Add services to the container.
 
