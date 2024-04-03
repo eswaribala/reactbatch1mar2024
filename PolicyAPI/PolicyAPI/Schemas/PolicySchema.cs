@@ -1,4 +1,5 @@
 ﻿using GraphQL.Types;
+using PolicyAPI.Mutations;
 using PolicyAPI.Queries;
 namespace PolicyAPI.Schemas
 {
@@ -8,6 +9,7 @@ namespace PolicyAPI.Schemas
         public PolicySchema(IServiceProvider serviceProvider)
         {
             Query = serviceProvider.GetRequiredService<RootQuery>();
+            Mutation = serviceProvider.GetRequiredService<RootMutation>();
         }
     }
 }
