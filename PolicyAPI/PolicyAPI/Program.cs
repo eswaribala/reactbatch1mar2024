@@ -44,9 +44,14 @@ Console.WriteLine(result);
 SqlConnectionStringBuilder providerCs = new SqlConnectionStringBuilder();
 providerCs.UserID = result["username"].ToString();
 providerCs.Password = result["password"].ToString();
+
+
 //providerCs.InitialCatalog = configuration["dbName"];
 providerCs.InitialCatalog = "PolicyDbBatch1";
 providerCs.DataSource = configuration["trainerservername"];
+
+
+
 providerCs.MultipleActiveResultSets = true;
 providerCs.TrustServerCertificate = true;
 

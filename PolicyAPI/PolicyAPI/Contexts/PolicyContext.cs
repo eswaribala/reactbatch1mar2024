@@ -24,6 +24,10 @@ namespace PolicyAPI.Contexts
                 .Property(p => p.Gender)
                 .HasConversion<string>()
                 .HasMaxLength(20);
+            modelBuilder.Entity<Vehicle>()
+                .Property(v => v.FuelType)
+                .HasConversion<string>()
+                .HasMaxLength(20);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace PolicyAPI.Mutations
             Field<NonNullGraphType<StringGraphType>>("Color");
             Field<NonNullGraphType<DateGraphType>>("DOR");
             Field<NonNullGraphType<StringGraphType>>("EngineNo");
-            Field<NonNullGraphType<StringGraphType>>("ChassisNo");
+            Field<NonNullGraphType<StringGraphType>>("ChasisNo");
             Field<NonNullGraphType<EnumerationGraphType<FuelType>>>("FuelType");
 
         }
