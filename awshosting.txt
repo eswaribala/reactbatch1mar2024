@@ -1,0 +1,13 @@
+http://34.201.251.242:8082/swagger/index.html
+
+1. create EC2 instance
+   ubuntu 22.0
+   configuration
+   t2.2xlarge(32 GB, 8 CPU core)
+   200 GB
+2. pull the project from github branch web api
+   git clone -b webapi https://github.com/eswaribala/reactbatch1mar2024.git
+
+3. docker-compose up
+
+    
