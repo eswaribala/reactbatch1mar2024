@@ -1,1 +1,1 @@
-docker run --rm --cap-add=IPC_LOCK -e VAULT_ADDR=http://34.201.109.212:8200 -p 8200:8200 -d --name=dev-vault vault:1.2.2  
+docker run --rm --cap-add=IPC_LOCK -e VAULT_ADDR=http://34.201.37.88:8200 -p 8200:8200 -d --name=dev-vault vault:1.2.2  
