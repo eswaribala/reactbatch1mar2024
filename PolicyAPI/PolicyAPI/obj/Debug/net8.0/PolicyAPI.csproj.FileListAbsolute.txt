@@ -290,3 +290,9 @@ F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Reactive.Linq.dll
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Reactive.dll
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\System.Reactive.xml
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\PolicyAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll

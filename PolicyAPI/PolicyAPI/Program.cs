@@ -57,6 +57,11 @@ providerCs.TrustServerCertificate = true;
 
 builder.Services.AddDbContext<PolicyContext>(o =>
 o.UseSqlServer(providerCs.ToString()));
+
+builder.Services.AddDbContext<PolicyIdentityContext>(o =>
+o.UseSqlServer(configuration.GetConnectionString("PolicyIdentityConn")));
+
+
 //dependency injection
 builder.Services.AddTransient<IPolicyHolderRepo, PolicyHolderRepo>();
 builder.Services.AddTransient<IPolicyRepo, PolicyRepo>();

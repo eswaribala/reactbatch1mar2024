@@ -44,3 +44,8 @@ F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\System.Reactive.xml
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\obj\Debug\docker-compose.dcproj.CopyComplete
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.Extensions.Identity.Stores.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.Extensions.Identity.Core.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
