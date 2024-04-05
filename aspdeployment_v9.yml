@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: policyservice
+  labels:
+    app: policyservice
+spec:
+  ports:
+  - port: 80
+    name: http
+  selector:
+    app: policyapibatch1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: policyapibatch1
+spec:
+  selector:
+
+    matchLabels:
+
+      app: policyapibatch1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: policyapibatch1
+        version: v1
+    spec:
+      containers:
+      - name: policyapibatch1
+        image: eswaribala/novacmstrainingbatch1:policyapiv2
+        
+        ports:
+        - containerPort: 80
+        env:
+
+            - name: ASPNETCORE_ENVIRONMENT
+
+              value: DEVELOPMENT
+
+            - name: SQLSERVER_CONNECTIONSTRING1
+
+              value: "Server=host.docker.internal,1403;Database=PolicyDbBatch1;User ID=sa;Password=Vignesh@95;TrustServerCertificate=true;MultipleActiveResultSets=true"  
+        
