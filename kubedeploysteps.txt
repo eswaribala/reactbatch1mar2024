@@ -9,3 +9,18 @@ kubectl apply -f sqlserverv1.yaml
 kubectl apply -f sqlservice.yml
 
 kubectl apply -f aspdeployment_v9.yml
+
+kubectl get pods
+
+kubectl get svc
+
+kubectl get deploy
+#to test application in localhost
+kubectl port-forward pod/<podname> podport:applicationport
+kubectl port-forward pod/pod437587488 7074:8080
+
+go to browser
+
+http://localhost:7074/swagger/index.html
+
+
