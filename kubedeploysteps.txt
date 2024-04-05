@@ -1,0 +1,11 @@
+docker build -f PolicyAPI/Dockerfile -t policyapi2024 .
+
+docker tag policyapi2024:latest eswaribala/novacmstrainingbatch1:policyapiv2
+
+docker push eswaribala/novacmstrainingbatch1:policyapiv2
+
+kubectl apply -f sqlserverv1.yaml
+
+kubectl apply -f sqlservice.yml
+
+kubectl apply -f aspdeployment_v9.yml
