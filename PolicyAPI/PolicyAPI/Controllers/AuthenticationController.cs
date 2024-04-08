@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using PolicyAPI.Auth;
+using PolicyAPI.Configurations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -148,9 +149,13 @@ namespace PolicyAPI.Controllers
 
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
-
-            var data = _configuration["Secret"];
-
+            var Url = _configuration["awsvaulturl"];
+            var RootKey = _configuration["rootkey"];
+            
+            IDictionary<string, object> result = new VaultConfiguration(_configuration)
+                .GetJWTSecrets(Url, RootKey).Result;
+            //var data = _configuration["Secret"];
+            var data = result["secret"].ToString();
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.
                 GetBytes(data));
 
@@ -159,7 +164,8 @@ namespace PolicyAPI.Controllers
                 audience: _configuration["JWT:ValidAudience"],
                 expires: DateTime.Now.AddMinutes(5),
                 claims: authClaims,
-                signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
+                signingCredentials: new SigningCredentials(authSigningKey, 
+                SecurityAlgorithms.Aes256Gcm)
                 );
 
             return token;
