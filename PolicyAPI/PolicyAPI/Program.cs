@@ -81,6 +81,7 @@ builder.Services.AddTransient<IVehicleRepo, VehicleRepo>();
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<PolicyIdentityContext>()
     .AddDefaultTokenProviders();
+builder.Services.AddTransient<IPolicyPublishRepo, PolicyPublishRepo>();
 
 
 builder.Services.AddEndpointsApiExplorer();
