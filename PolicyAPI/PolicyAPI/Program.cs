@@ -14,6 +14,11 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using PolicyAPI.Schemas;
 using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using VaultSharp.V1.Commons;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,6 +45,12 @@ builder.Services.AddControllers()
 
 IDictionary<string,object> result = new VaultConfiguration(configuration).GetSecrets(Url,RootKey).Result;
 Console.WriteLine(result);
+
+IDictionary<string, object> secretResult = new VaultConfiguration(configuration)
+             .GetJWTSecrets(Url, RootKey).Result;
+//var data = _configuration["Secret"];
+var SecretData = secretResult["secret"].ToString();
+
 ////connection string
 SqlConnectionStringBuilder providerCs = new SqlConnectionStringBuilder();
 providerCs.UserID = result["username"].ToString();
@@ -67,13 +78,40 @@ builder.Services.AddTransient<IPolicyHolderRepo, PolicyHolderRepo>();
 builder.Services.AddTransient<IPolicyRepo, PolicyRepo>();
 builder.Services.AddTransient<IAddressRepo, AddressRepo>();
 builder.Services.AddTransient<IVehicleRepo, VehicleRepo>();
-
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<PolicyIdentityContext>()
+    .AddDefaultTokenProviders();
 
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
 {
     opt.SwaggerDoc("v1", new OpenApiInfo { Title = "PolicyAPI", Version = "v1" });
+    opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer"
+    });
+
+    opt.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
+
 });
 builder.Services.AddApiVersioning(opt =>
 {
@@ -114,6 +152,29 @@ builder.Services.AddGraphQL()
                .AddSystemTextJson()
                .AddGraphTypes(typeof(PolicySchema), ServiceLifetime.Scoped);
 
+// Adding Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+// Add services to the container.
+
+// Adding Jwt Bearer
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = configuration["JWT:ValidAudience"],
+        ValidIssuer = configuration["JWT:ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretData))
+    };
+});
 
 
 var app = builder.Build();
@@ -136,7 +197,7 @@ app.UseGraphQL<PolicySchema>();
 app.UseGraphQLPlayground(options: new PlaygroundOptions());
 app.UseHttpsRedirection();
 app.UseCors(policyName);
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

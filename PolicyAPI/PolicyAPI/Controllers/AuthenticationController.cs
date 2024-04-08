@@ -165,7 +165,7 @@ namespace PolicyAPI.Controllers
                 expires: DateTime.Now.AddMinutes(5),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, 
-                SecurityAlgorithms.Aes256Gcm)
+                SecurityAlgorithms.HmacSha256)
                 );
 
             return token;

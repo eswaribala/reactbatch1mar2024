@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using PolicyAPI.Auth;
 using PolicyAPI.Contexts;
 using PolicyAPI.Models;
 using PolicyAPI.Repositories;
@@ -30,6 +32,7 @@ namespace PolicyAPI.Controllers
 
         // GET: api/PolicyHolders
         [HttpGet]
+        [Authorize(Roles = Roles.Admin)]
         public async Task<IEnumerable<PolicyHolder>> GetPolicyHolders()
         {
             return await _policyHolderRepo.GetAllPolicyHolders();

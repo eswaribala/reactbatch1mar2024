@@ -49,3 +49,8 @@ F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.Extensions.Ide
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.Extensions.Identity.Core.dll
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.IdentityModel.Logging.dll
+F:\Local disk\NovacMSTrainingBatch1\PolicyAPI\bin\Debug\Microsoft.IdentityModel.Abstractions.dll
