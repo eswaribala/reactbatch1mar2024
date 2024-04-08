@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "eRyRw+5JRNYUtD/09nILGSydWkYkzxUCOVQeA7pw2t5kI6vj2pQyR6Vm9N5FntF+ZrkzcDIfxYJpNyRdtr+MrQ==",
+  "dgSpecHash": "Ef5jYYqkeLDR25bW8MYtrae8fh9NS8mV4lgo9LmwpwIBTNxgN1GIaegNwISVPCXEZKnZzfCQNuXnXzOqjwgBZQ==",
   "success": true,
   "projectFilePath": "F:\\Local disk\\NovacMSTrainingBatch1\\PolicyAPI\\PolicyAPI\\PolicyAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\confluent.kafka\\2.3.0\\confluent.kafka.2.3.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\graphql\\4.6.1\\graphql.4.6.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\graphql-parser\\7.2.0\\graphql-parser.7.2.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\graphql.dataloader\\4.1.0\\graphql.dataloader.4.1.0.nupkg.sha512",
@@ -67,6 +68,7 @@
     "C:\\Users\\Dell\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\librdkafka.redist\\2.3.0\\librdkafka.redist.2.3.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.3\\microsoft.aspnetcore.authentication.jwtbearer.8.0.3.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.3\\microsoft.aspnetcore.authorization.8.0.3.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.3\\microsoft.aspnetcore.components.8.0.3.nupkg.sha512",
