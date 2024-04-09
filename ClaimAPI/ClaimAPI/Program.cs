@@ -1,3 +1,4 @@
+using ClaimAPI.Repositories;
 using ClaimAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddTransient<IPolicyMongoRepo, PolicyMongoRepo>();
 builder.Services.AddHostedService<PolicyConsumerService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -11,11 +11,15 @@ namespace ClaimAPI.Repositories
         public PolicyMongoRepo(IConfiguration configuration)
         {
             _configuration = configuration;
+            var _mongoClient= new MongoClient(_configuration["ConnectionString"]);
+            var _mongoDatabase=_mongoClient.GetDatabase(_configuration["DatabaseName"]);
+            _mongoCollection = _mongoDatabase.GetCollection<Policy>(_configuration["PoliciesCollectionName"]);
+
         }
 
-        public void AddPolicy(Policy policy)
+        public async void AddPolicy(Policy policy)
         {
-            throw new NotImplementedException();
+            await _mongoCollection.InsertOneAsync(policy);
         }
     }
 }
