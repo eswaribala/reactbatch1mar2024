@@ -1,0 +1,11 @@
+docker container ls -a
+#pick mongo container id
+docker exec -it <mongocontainerid> bin/bash
+#after bash shell opens, add mongosh command to run mongo client
+
+#mongosh
+#show dbs;
+use <dbname>
+show collections;
+db.<collectionname>.find()
+
