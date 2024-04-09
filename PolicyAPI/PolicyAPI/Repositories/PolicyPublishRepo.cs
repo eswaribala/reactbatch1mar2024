@@ -12,6 +12,7 @@ namespace PolicyAPI.Repositories
             ProducerConfig ProducerConfig = new ProducerConfig
             {
                 BootstrapServers = configuration["BootStrapServer"],
+                
                  ClientId = Dns.GetHostName()
 
             };
